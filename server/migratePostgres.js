@@ -61,6 +61,13 @@ async function migrate() {
       );
     `;
 
+    // Ensure affiliate_url exists if table was already created
+    try {
+      await sql`ALTER TABLE deals ADD COLUMN IF NOT EXISTS affiliate_url TEXT`;
+    } catch (e) {
+      console.log('affiliate_url column might already exist.');
+    }
+
     // 2. Seed Initial Data (Check if empty)
     const rows = await sql`SELECT COUNT(*) FROM restaurants`;
     if (parseInt(rows[0].count) === 0) {

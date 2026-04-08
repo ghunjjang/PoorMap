@@ -6,7 +6,7 @@ import './DealsPage.css';
 
 export default function DealsPage() {
   const [sortBy, setSortBy] = useState('latest');
-  const [allDeals, setAllDeals] = useState([]);
+  const [allDeals, setAllDeals] = useState(deals);
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_URL || '';
