@@ -1,0 +1,171 @@
+/* ========== Ad Label ========== */
+.ad-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  padding: 1px 5px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* ========== Inline Ad ========== */
+.ad-inline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-xs) 0;
+}
+
+.ad-inline-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-normal);
+}
+.ad-inline-content:hover {
+  border-color: var(--border-active);
+}
+
+.ad-inline-icon {
+  font-size: 1.4rem;
+}
+
+.ad-inline-text {
+  flex: 1;
+}
+
+.ad-inline-title {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.ad-inline-cta {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+.ad-inline-cta:hover {
+  opacity: 0.8;
+}
+
+/* ========== Card Ad ========== */
+.ad-card {
+  padding: var(--space-md);
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
+}
+
+.ad-card .ad-label {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+}
+
+.ad-card-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.ad-card-icon {
+  font-size: 2rem;
+}
+
+.ad-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ad-card-title {
+  font-size: var(--font-md);
+  font-weight: 700;
+}
+
+.ad-card-subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.ad-card-cta {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* ========== Sticky Bottom Ad ========== */
+.ad-sticky-bottom {
+  position: fixed;
+  bottom: calc(var(--nav-height) + 2px);
+  left: 0;
+  right: 0;
+  padding: var(--space-sm) var(--space-md);
+  z-index: calc(var(--z-nav) - 1);
+  border-top: 1px solid var(--border-color);
+  background: rgba(15, 15, 26, 0.95);
+  backdrop-filter: blur(12px);
+  animation: slideUp 0.3s ease-out;
+}
+
+.ad-sticky-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.ad-sticky-icon {
+  font-size: 1.3rem;
+}
+
+.ad-sticky-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ad-sticky-title {
+  font-size: var(--font-xs);
+  font-weight: 700;
+}
+
+.ad-sticky-subtitle {
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ad-sticky-cta {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  color: white;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity var(--transition-fast);
+}
+.ad-sticky-cta:hover {
+  opacity: 0.85;
+}
+
+.ad-sticky-bottom .ad-label {
+  position: absolute;
+  top: 2px;
+  right: var(--space-sm);
+}

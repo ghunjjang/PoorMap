@@ -1,0 +1,67 @@
+.support-banner {
+  padding: var(--space-md);
+  border: 1px solid rgba(139, 90, 43, 0.2) !important;
+  background: linear-gradient(135deg, rgba(139, 90, 43, 0.08), rgba(233, 69, 96, 0.03)) !important;
+}
+
+.sb-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.sb-icon {
+  font-size: 2rem;
+}
+
+.sb-info {
+  flex: 1;
+}
+
+.sb-title {
+  font-size: var(--font-md);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.sb-text {
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.sb-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+
+.sb-btn {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transition-normal);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+}
+.sb-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.sb-btn-100:hover {
+  border-color: rgba(139, 90, 43, 0.4);
+  background: rgba(139, 90, 43, 0.15);
+}
+.sb-btn-300:hover {
+  border-color: rgba(233, 69, 96, 0.4);
+  background: rgba(233, 69, 96, 0.15);
+}
+.sb-btn-500:hover {
+  border-color: rgba(255, 215, 0, 0.4);
+  background: rgba(255, 215, 0, 0.1);
+  color: #ffd700;
+}
