@@ -109,7 +109,7 @@ export default function DealsPage() {
                 <div className="deal-actions">
                   <a 
                     className="btn-primary" 
-                    href={deal.affiliateUrl || "#"} 
+                    href={deal.affiliate_url || "#"} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     style={{ fontSize: '12px', padding: '6px 12px', textDecoration: 'none' }}

@@ -27,6 +27,15 @@ const adData = [
     color: '#ffd700',
     icon: '📱',
     link: '#'
+  },
+  {
+    id: 'ad-amazon-budget',
+    title: 'Amazon 가성비 샵',
+    subtitle: '생활필수품부터 통조림까지 최대 40% 할인!',
+    cta: '특가 확인하기 →',
+    color: '#FF9900',
+    icon: '📦',
+    link: 'https://www.amazon.co.jp/b?node=2351230051&tag=amazon0ff1f1-20'
   }
 ];
 
