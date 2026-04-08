@@ -4,6 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { restaurants, genres } from '../data/mockData';
 import ReportModal from '../components/ReportModal';
+import GuideModal from '../components/GuideModal';
 import './MapPage.css';
 
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -69,6 +70,19 @@ export default function MapPage() {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [mapCenter, setMapCenter] = useState(TOKYO_CENTER);
   const [mapBounds, setMapBounds] = useState(null);
+  const [showGuide, setShowGuide] = useState(false);
+
+  useEffect(() => {
+    const hasVisited = localStorage.getItem('poor_map_visited');
+    if (!hasVisited) {
+      setShowGuide(true);
+    }
+  }, []);
+
+  const handleCloseGuide = () => {
+    setShowGuide(false);
+    localStorage.setItem('poor_map_visited', 'true');
+  };
 
   useEffect(() => {
     const apiBase = import.meta.env.VITE_API_URL || '';
@@ -329,6 +343,11 @@ export default function MapPage() {
           onClose={() => setShowReportModal(false)}
           onSubmit={handleReport}
         />
+      )}
+
+      {/* Onboarding Guide Modal */}
+      {showGuide && (
+        <GuideModal onClose={handleCloseGuide} />
       )}
     </div>
   );

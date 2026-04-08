@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import Database from 'better-sqlite3';
+import { sql } from '@vercel/postgres';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -9,61 +9,85 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const dbPath = path.resolve(__dirname, 'poormap.db');
-const db = new Database(dbPath);
 
 app.use(cors());
 app.use(express.json());
 
 // --- RESTAURANTS ---
-app.get('/api/restaurants', (req, res) => {
-  const stmt = db.prepare('SELECT * FROM restaurants');
-  const rows = stmt.all();
-  res.json(rows);
+app.get('/api/restaurants', async (req, res) => {
+  try {
+    const { rows } = await sql`SELECT * FROM restaurants`;
+    res.json(rows);
+  } catch (err) {
+    console.error('Error fetching restaurants:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
-app.post('/api/restaurants', (req, res) => {
+app.post('/api/restaurants', async (req, res) => {
   const { name, genre, price, lat, lng, area, address, description, emoji } = req.body;
-  const stmt = db.prepare(`
-    INSERT INTO restaurants (name, genre, price, rating, lat, lng, area, address, description, emoji)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-  `);
-  const info = stmt.run(name, genre, price, 0.0, lat, lng, area, address, description, emoji || '📍');
-  res.json({ id: info.lastInsertRowid, success: true });
+  try {
+    const { rows } = await sql`
+      INSERT INTO restaurants (name, genre, price, rating, lat, lng, area, address, description, emoji)
+      VALUES (${name}, ${genre}, ${price}, 0.0, ${lat}, ${lng}, ${area}, ${address}, ${description}, ${emoji || '📍'})
+      RETURNING id
+    `;
+    res.json({ id: rows[0].id, success: true });
+  } catch (err) {
+    console.error('Error reporting restaurant:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 // --- POSTS ---
-app.get('/api/posts', (req, res) => {
-  const stmt = db.prepare('SELECT * FROM posts ORDER BY id DESC');
-  const rows = stmt.all();
-  res.json(rows);
+app.get('/api/posts', async (req, res) => {
+  try {
+    const { rows } = await sql`SELECT * FROM posts ORDER BY id DESC`;
+    res.json(rows);
+  } catch (err) {
+    console.error('Error fetching posts:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
-app.post('/api/posts', (req, res) => {
+app.post('/api/posts', async (req, res) => {
   const { category, title, author, content, isHot } = req.body;
   const createdAt = new Date().toISOString();
-  const stmt = db.prepare(`
-    INSERT INTO posts (category, title, author, content, createdAt, isHot)
-    VALUES (?, ?, ?, ?, ?, ?)
-  `);
-  const info = stmt.run(category, title, author, content, createdAt, isHot ? 1 : 0);
-  res.json({ id: info.lastInsertRowid, success: true });
+  try {
+    const { rows } = await sql`
+      INSERT INTO posts (category, title, author, content, createdAt, isHot)
+      VALUES (${category}, ${title}, ${author}, ${content}, ${createdAt}, ${isHot ? true : false})
+      RETURNING id
+    `;
+    res.json({ id: rows[0].id, success: true });
+  } catch (err) {
+    console.error('Error posting community content:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 // --- DEALS ---
-app.get('/api/deals', (req, res) => {
-  const stmt = db.prepare('SELECT * FROM deals ORDER BY id DESC');
-  const rows = stmt.all();
-  res.json(rows);
+app.get('/api/deals', async (req, res) => {
+  try {
+    const { rows } = await sql`SELECT * FROM deals ORDER BY id DESC`;
+    res.json(rows);
+  } catch (err) {
+    console.error('Error fetching deals:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
-app.post('/api/deals/:id/like', (req, res) => {
+app.post('/api/deals/:id/like', async (req, res) => {
   const { id } = req.params;
-  const stmt = db.prepare('UPDATE deals SET likes = likes + 1 WHERE id = ?');
-  stmt.run(id);
-  res.json({ success: true });
+  try {
+    await sql`UPDATE deals SET likes = likes + 1 WHERE id = ${id}`;
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Error liking deal:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 app.listen(PORT, () => {
-  console.log(`Backend API Server running on http://localhost:${PORT}`);
+  console.log(`Backend API Server (Vercel Postgres) running on http://localhost:${PORT}`);
 });
