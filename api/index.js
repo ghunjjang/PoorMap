@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { sql } from '@vercel/postgres';
+import { neon } from '@neondatabase/serverless';
 
 const app = express();
+const sql = neon(process.env.POSTGRES_URL);
 
 app.use(cors());
 app.use(express.json());
@@ -10,7 +11,7 @@ app.use(express.json());
 // --- RESTAURANTS ---
 app.get('/api/restaurants', async (req, res) => {
   try {
-    const { rows } = await sql`SELECT * FROM restaurants`;
+    const rows = await sql`SELECT * FROM restaurants`;
     res.json(rows);
   } catch (err) {
     console.error('Error fetching restaurants:', err);
@@ -21,7 +22,7 @@ app.get('/api/restaurants', async (req, res) => {
 app.post('/api/restaurants', async (req, res) => {
   const { name, genre, price, lat, lng, area, address, description, emoji } = req.body;
   try {
-    const { rows } = await sql`
+    const rows = await sql`
       INSERT INTO restaurants (name, genre, price, rating, lat, lng, area, address, description, emoji)
       VALUES (${name}, ${genre}, ${price}, 0.0, ${lat}, ${lng}, ${area}, ${address}, ${description}, ${emoji || '📍'})
       RETURNING id
@@ -36,7 +37,7 @@ app.post('/api/restaurants', async (req, res) => {
 // --- POSTS ---
 app.get('/api/posts', async (req, res) => {
   try {
-    const { rows } = await sql`SELECT * FROM posts ORDER BY id DESC`;
+    const rows = await sql`SELECT * FROM posts ORDER BY id DESC`;
     res.json(rows);
   } catch (err) {
     console.error('Error fetching posts:', err);
@@ -48,7 +49,7 @@ app.post('/api/posts', async (req, res) => {
   const { category, title, author, content, isHot } = req.body;
   const createdAt = new Date().toISOString();
   try {
-    const { rows } = await sql`
+    const rows = await sql`
       INSERT INTO posts (category, title, author, content, createdAt, isHot)
       VALUES (${category}, ${title}, ${author}, ${content}, ${createdAt}, ${isHot ? true : false})
       RETURNING id
@@ -63,7 +64,7 @@ app.post('/api/posts', async (req, res) => {
 // --- DEALS ---
 app.get('/api/deals', async (req, res) => {
   try {
-    const { rows } = await sql`SELECT * FROM deals ORDER BY id DESC`;
+    const rows = await sql`SELECT * FROM deals ORDER BY id DESC`;
     res.json(rows);
   } catch (err) {
     console.error('Error fetching deals:', err);

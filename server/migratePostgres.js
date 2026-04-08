@@ -1,10 +1,8 @@
-import { createPool } from '@vercel/postgres';
+import { neon } from '@neondatabase/serverless';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const pool = createPool({
-  connectionString: process.env.POSTGRES_URL
-});
+const sql = neon(process.env.POSTGRES_URL);
 
 async function migrate() {
   try {
@@ -12,7 +10,7 @@ async function migrate() {
     
     // 1. Create Tables
     console.log('Creating tables...');
-    await pool.sql`
+    await sql`
       CREATE TABLE IF NOT EXISTS restaurants (
         id SERIAL PRIMARY KEY,
         name TEXT NOT NULL,
@@ -28,7 +26,7 @@ async function migrate() {
       );
     `;
 
-    await pool.sql`
+    await sql`
       CREATE TABLE IF NOT EXISTS posts (
         id SERIAL PRIMARY KEY,
         category TEXT NOT NULL,
@@ -42,7 +40,7 @@ async function migrate() {
       );
     `;
 
-    await pool.sql`
+    await sql`
       CREATE TABLE IF NOT EXISTS deals (
         id SERIAL PRIMARY KEY,
         source TEXT NOT NULL,
@@ -63,7 +61,7 @@ async function migrate() {
     `;
 
     // 2. Seed Initial Data (Check if empty)
-    const { rows } = await pool.sql`SELECT COUNT(*) FROM restaurants`;
+    const rows = await sql`SELECT COUNT(*) FROM restaurants`;
     if (parseInt(rows[0].count) === 0) {
       console.log('Seeding initial restaurants...');
       // Sample data from initDb.js logic
@@ -75,7 +73,7 @@ async function migrate() {
       ];
 
       for (const s of samples) {
-        await pool.sql`
+        await sql`
           INSERT INTO restaurants (name, genre, price, rating, lat, lng, area, address, description, emoji)
           VALUES (${s[0]}, ${s[1]}, ${s[2]}, ${s[3]}, ${s[4]}, ${s[5]}, ${s[6]}, ${s[7]}, ${s[8]}, ${s[9]})
         `;
