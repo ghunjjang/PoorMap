@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#dd2d42",
+                        "tertiary-fixed": "#9af896",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "tertiary-fixed-dim": "#7fdb7d",
+                        "on-surface-variant": "#5b403f",
+                        "tertiary": "#006b1c",
+                        "outline-variant": "#e4bdbc",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-tint": "#bc0d2e",
+                        "on-primary-container": "#fffbff",
+                        "secondary-fixed-dim": "#aecbda",
+                        "primary-fixed": "#ffdad9",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002204",
+                        "on-surface": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b2",
+                        "outline": "#906f6f",
+                        "on-secondary-fixed-variant": "#2f4a57",
+                        "on-primary-fixed-variant": "#920020",
+                        "on-secondary-fixed": "#001f2a",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410008",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-container": "#c7e4f3",
+                        "on-tertiary-container": "#f7fff1",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#298533",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb3b2",
+                        "surface-dim": "#dadada",
+                        "error-container": "#ffdad6",
+                        "secondary": "#47626f",
+                        "secondary-fixed": "#cae7f6",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-container": "#4b6673",
+                        "primary": "#b9082c",
+                        "surface": "#f9f9f9",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed-variant": "#005314"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low font-body text-on-surface antialiased">
+<!-- Top Navigation Anchor (Hidden on detailed task focus as per protocol, but implied back button requested) -->
+<nav class="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-6 pointer-events-none">
+<button class="pointer-events-auto w-12 h-12 flex items-center justify-center rounded-full bg-white/90 shadow-lg text-on-surface active:scale-95 transition-transform">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="pointer-events-auto w-12 h-12 flex items-center justify-center rounded-full bg-white/90 shadow-lg text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">share</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pb-32">
+<!-- Hero Section -->
+<section class="relative h-[397px] w-full overflow-hidden">
+<img alt="Sizzling Korean street food plate" class="w-full h-full object-cover" data-alt="Close-up of vibrant spicy tteokbokki and crispy kimbap on a rustic ceramic plate with steam rising in warm evening light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxrgGFeT2UKHuSfdWGMHbqXzRhqzjMtVJmFPuQoIzcOzkMx8Mpi1hnWwkDQ_AJpXmbP4ncYjJKHxiltSfOxcnRxzWO_-X6UWWAILaJS-8NLtibmqltYy7b8BJqqU4zFkOl07v9WCiKbLua6-DVDQ7X-jTQIZFTKkBfil2F0zv5cKHCbkwzn0BOT8HL4L1pedtfmxy69-T19VLdw7amnLKewhHt_4JELC7OsUvCFlaIdz7cp6_WcjuQ-EhrZvL-vqLNr5pNS1v4OD0n"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="inline-flex items-center gap-2 bg-tertiary px-3 py-1 rounded-full mb-3 shadow-lg">
+<span class="material-symbols-outlined text-[14px] text-white" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-white font-headline text-xs font-bold tracking-wider uppercase">Top Value Pick</span>
+</div>
+<h1 class="font-headline font-extrabold text-4xl text-white tracking-tight leading-tight">Myeongdong Gyoza Express</h1>
+<p class="text-white/80 font-medium flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                    Seoul, Jung-gu
+                </p>
+</div>
+</section>
+<!-- Restaurant Details & Actions -->
+<div class="relative -mt-10 px-6 z-10 space-y-6">
+<!-- Quick Info Card -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-xl shadow-black/5 space-y-6">
+<!-- Pricing Section -->
+<div class="flex items-center justify-between">
+<div>
+<p class="text-secondary text-sm font-semibold uppercase tracking-widest mb-1">Average Meal</p>
+<p class="font-headline font-extrabold text-2xl text-on-surface">8,500₩ - 14,000₩</p>
+</div>
+<div class="h-12 w-12 bg-primary-fixed rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+</div>
+<!-- Primary Actions -->
+<div class="flex gap-3">
+<button class="flex-1 flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 px-6 rounded-lg font-headline font-bold text-lg shadow-lg active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">near_me</span>
+                        Navigate
+                    </button>
+<button class="w-20 flex items-center justify-center bg-surface-container-high text-primary py-4 rounded-lg font-headline font-bold shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">bookmark</span>
+</button>
+</div>
+</div>
+<!-- Bento Info Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Hours Card -->
+<div class="bg-white rounded-lg p-5 flex flex-col justify-between h-40">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">schedule</span>
+<span class="font-headline font-bold text-sm">Hours</span>
+</div>
+<div>
+<p class="text-on-surface font-bold">11:00 - 21:00</p>
+<p class="text-tertiary text-xs font-bold mt-1">Open Now</p>
+</div>
+</div>
+<!-- Vibe Card -->
+<div class="bg-white rounded-lg p-5 flex flex-col justify-between h-40">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">mood</span>
+<span class="font-headline font-bold text-sm">Vibe</span>
+</div>
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface-container-high px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-tighter text-secondary">Noisy</span>
+<span class="bg-surface-container-high px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-tighter text-secondary">Cash Only</span>
+<span class="bg-surface-container-high px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-tighter text-secondary">Fast</span>
+</div>
+</div>
+</div>
+<!-- The Street Buzz Section -->
+<section class="space-y-4">
+<div class="flex items-end justify-between px-2">
+<h2 class="font-headline font-extrabold text-3xl tracking-tight text-on-surface">The Street Buzz</h2>
+<div class="flex items-center gap-1 mb-1">
+<span class="text-primary font-bold">4.8</span>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+</div>
+</div>
+</div>
+<!-- Review Feed (No Dividers, Vertical Whitespace Only) -->
+<div class="space-y-4">
+<!-- Review 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container overflow-hidden">
+<img alt="Profile of user Minji" class="w-full h-full object-cover" data-alt="Portrait of a young woman with a friendly smile in a city setting, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd2EGiIq7UMtpvbcWVjftyd_i2RWL7CmQAoR23oJPYdtiZYjAnKFBYsxNWhRrDYamPzF2PHAUR9Zit21j6wBbemTwKWyk_eUjHs-5vTfo2hJCTzB7Ox4hKgtWkxekNlZ_rFqjGsyU5AgdlQXQiGyt84A5XrdnPK_Wic-RdeRt2bnSXpsfQ28R9uJ_4MBJ6tOr4raPdsdOWylzsVrice5ae3HZd_qz4PKEBVeV6f1HDKSpPj-w0SPPFf-htZZELIP5ELAdUxoYIQvKG"/>
+</div>
+<div>
+<p class="font-headline font-bold text-sm">Minji Park</p>
+<p class="text-zinc-400 text-xs">2 hours ago</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-sm mb-3">
+                            "The kalguksu broth is incredibly deep for only 9,000₩. It's loud and crowded, but that's part of the charm. Definitely bring cash!"
+                        </p>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+<span class="text-xs font-bold text-primary">12 Helpful</span>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container overflow-hidden">
+<img alt="Profile of user David" class="w-full h-full object-cover" data-alt="Close up portrait of a man with sunglasses and a leather jacket, urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnbWTE2rlfdjeY5bX3kLmI70_dZ4gNRQ4Y6jUikV-tcaMGHTFsqxtWIQuzdcHQ4x8FiFboaw35PUqIhXxfThLzuCF_aUTkpbOiUXVj_P2GRVB6aZxZOGua5DzCALgkp_84ouY6DsjBPKIvFOMmJOV7hLxr5pezv1Lbkb58Vr-onEevfxdj_wwE7lmLgL7wBxqx7LGVCmPMa6Ns7N8jaWyfj-fG4Fj78FIcz3OgIFXs6mwZxJclKSjO_G4TG0AM7bet99JgrqavRIqc"/>
+</div>
+<div>
+<p class="font-headline font-bold text-sm">David Chen</p>
+<p class="text-zinc-400 text-xs">Yesterday</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-sm">
+                            "Best dumplings in the area. No nonsense service. You're in and out in 20 minutes. The spicy kimchi is a game changer."
+                        </p>
+</div>
+</div>
+<button class="w-full py-4 text-primary font-headline font-bold text-sm uppercase tracking-widest bg-primary-fixed/30 rounded-lg">
+                    See All 142 Reviews
+                </button>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Filter Logic: Suppressed because this is a Detail View task-focused screen) -->
+<!-- However, we still have a 'Map' anchor if needed, but per the "Destination Rule", we hide the standard bottom bar for focused detail views. -->
+<!-- Contextual Map FAB (Special logic: rendering map entry point) -->
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+<button class="bg-inverse-surface text-inverse-on-surface px-8 py-4 rounded-full shadow-2xl flex items-center gap-3 font-headline font-bold active:scale-95 transition-all">
+<span class="material-symbols-outlined">map</span>
+            View Nearby
+        </button>
+</div>
+</body></html>

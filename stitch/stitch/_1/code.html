@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#dd2d42",
+                        "tertiary-fixed": "#9af896",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container": "#eeeeee",
+                        "tertiary-fixed-dim": "#7fdb7d",
+                        "on-surface-variant": "#5b403f",
+                        "tertiary": "#006b1c",
+                        "outline-variant": "#e4bdbc",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-tint": "#bc0d2e",
+                        "on-primary-container": "#fffbff",
+                        "secondary-fixed-dim": "#aecbda",
+                        "primary-fixed": "#ffdad9",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002204",
+                        "on-surface": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#ffb3b2",
+                        "outline": "#906f6f",
+                        "on-secondary-fixed-variant": "#2f4a57",
+                        "on-primary-fixed-variant": "#920020",
+                        "on-secondary-fixed": "#001f2a",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#410008",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f3",
+                        "secondary-container": "#c7e4f3",
+                        "on-tertiary-container": "#f7fff1",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#298533",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb3b2",
+                        "surface-dim": "#dadada",
+                        "error-container": "#ffdad6",
+                        "secondary": "#47626f",
+                        "secondary-fixed": "#cae7f6",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-container": "#4b6673",
+                        "primary": "#b9082c",
+                        "surface": "#f9f9f9",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-tertiary-fixed-variant": "#005314"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .map-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(249, 249, 249, 0.8) 0%, rgba(249, 249, 249, 0) 20%, rgba(249, 249, 249, 0) 80%, rgba(249, 249, 249, 0.8) 100%);
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed-dim overflow-hidden">
+<!-- Full Screen Map Canvas -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[20%] opacity-80" data-alt="stylized architectural map of Seoul city streets with soft gray and blue tones and clean minimalist vector lines" data-location="Seoul, South Korea" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnaGKGtKnPEgEC9jKx5N7NTIygMQnl0q9b35zsmSx5_PTasFT_zlRms2a_tXoT3fPXJWnfSGPNrHMlAzAGFnPgwAIxla05OjGgasLBuXqNP9hGZzqh_EaMEK42l1cTn3ct2ZwvYgVv5KjB-oMiwasOMYaCPICZM_7b1GoKf-4hRrKev_TWUbAIUosbVvKOwG2q5dormbbBgkxy-RNXOKjJOA-h177chQ_V7GwnzBg5KcDpjI433cMznxYialBiGTWDpoXip9APM7Ci"/>
+<div class="absolute inset-0 map-gradient-overlay pointer-events-none"></div>
+<!-- Map Markers -->
+<div class="absolute top-[35%] left-[25%] active:scale-95 transition-transform">
+<div class="relative flex flex-col items-center">
+<div class="w-12 h-12 bg-primary rounded-xl rounded-bl-none rotate-45 flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-white -rotate-45" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="mt-2 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm text-[10px] font-bold text-primary">3,500₩</div>
+</div>
+</div>
+<div class="absolute top-[50%] left-[60%] active:scale-95 transition-transform">
+<div class="relative flex flex-col items-center">
+<div class="w-10 h-10 bg-primary-container rounded-xl rounded-bl-none rotate-45 flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-white -rotate-45" style="font-variation-settings: 'FILL' 1;">bakery_dining</span>
+</div>
+<div class="mt-2 bg-surface-container-lowest px-2 py-1 rounded-full shadow-sm text-[10px] font-bold text-primary-container">4,200₩</div>
+</div>
+</div>
+<div class="absolute top-[20%] left-[75%] active:scale-95 transition-transform opacity-60">
+<div class="relative flex flex-col items-center">
+<div class="w-8 h-8 bg-secondary rounded-xl rounded-bl-none rotate-45 flex items-center justify-center shadow-lg border-2 border-surface-container-lowest">
+<span class="material-symbols-outlined text-white text-sm -rotate-45" style="font-variation-settings: 'FILL' 1;">local_cafe</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Navigation Interface -->
+<header class="fixed top-0 w-full z-50 px-4 pt-4 pb-8 pointer-events-none">
+<div class="max-w-md mx-auto space-y-3 pointer-events-auto">
+<!-- Search Bar -->
+<div class="flex items-center bg-surface-container-lowest/90 glass-panel rounded-2xl shadow-xl p-2 pl-4 border border-white/20">
+<span class="material-symbols-outlined text-secondary mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface font-medium placeholder:text-zinc-400" placeholder="Search for cheap eats..." type="text"/>
+<button class="p-2 hover:bg-surface-container rounded-xl transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">tune</span>
+</button>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-primary-container text-white text-xs font-bold shadow-md shadow-primary-container/20 flex items-center gap-1 active:scale-95 transition-transform">
+                    Under 5,000₩
+                    <span class="material-symbols-outlined text-xs">close</span>
+</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-lowest/80 glass-panel text-on-surface-variant text-xs font-semibold shadow-sm border border-white/20 active:scale-95 transition-transform">
+                    Student Deals
+                </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-lowest/80 glass-panel text-on-surface-variant text-xs font-semibold shadow-sm border border-white/20 active:scale-95 transition-transform">
+                    24 Hours
+                </button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-lowest/80 glass-panel text-on-surface-variant text-xs font-semibold shadow-sm border border-white/20 active:scale-95 transition-transform">
+                    Street Food
+                </button>
+</div>
+</div>
+</header>
+<!-- Floating UI Controls -->
+<div class="fixed right-4 bottom-72 z-40 flex flex-col gap-3">
+<button class="w-12 h-12 rounded-2xl bg-surface-container-lowest glass-panel shadow-lg flex items-center justify-center text-secondary active:scale-90 transition-all border border-white/20">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+<button class="w-12 h-12 rounded-2xl bg-surface-container-lowest glass-panel shadow-lg flex items-center justify-center text-secondary active:scale-90 transition-all border border-white/20">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+<!-- Bottom Content Overlay (Swipeable Card & Nav) -->
+<div class="fixed bottom-0 w-full z-50">
+<!-- Preview Card -->
+<div class="px-4 pb-6">
+<div class="max-w-md mx-auto bg-surface-container-lowest rounded-lg shadow-2xl overflow-hidden ring-1 ring-black/5 active:scale-[0.98] transition-transform">
+<div class="flex h-36">
+<div class="w-1/3 relative h-full">
+<img class="w-full h-full object-cover" data-alt="Close-up of crispy golden Korean fried chicken in a paper cup with spicy sauce drizzle on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkxqXlRlLZnLIYBGtmkCLTXNza9PhmOr-5uLF9lqxsPOv2y8WhbLYeSPJ6_AyS7RyOkBfGq4AFFFN9z910HefN-Hg9kaCuaNvk-7EFdIxlMgO0VVQiPbJIAFNKp2_gHehY1xR8bNlRQ4jTOSgkQsPXo1Wg96j-b5PBMg4bdetLkQoWdrylTjjnEvbvZ-A55N7Aq39jAdOGH0dGOe41Vh7depJw8wkovJ4tqtd74ZOEEWyaa8kA-sR7UPe28YGDN8wvmmxKUt6u0Q48"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-tertiary/90 backdrop-blur-sm text-[10px] font-extrabold text-white rounded-lg">OPEN</div>
+</div>
+<div class="w-2/3 p-4 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg text-on-surface leading-tight">K-Fried Chicken Cup</h3>
+<button class="text-primary active:scale-125 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-on-surface">4.8</span>
+<span class="text-xs text-zinc-400 font-medium">(1.2k) • 250m away</span>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<div class="text-[10px] uppercase tracking-wider font-bold text-zinc-400 mb-0.5">Starting From</div>
+<div class="text-xl font-headline font-extrabold text-primary">4,000₩</div>
+</div>
+<button class="bg-primary text-white px-5 py-2 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+                                View Deal
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom NavBar -->
+<nav class="bg-white dark:bg-zinc-950 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl flex justify-around items-center px-4 pb-8 pt-3 w-full">
+<button class="flex flex-col items-center justify-center bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 rounded-2xl px-5 py-2 active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-['Inter'] text-[11px] font-semibold mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 px-5 py-2 hover:text-red-500 transition-colors active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined">local_offer</span>
+<span class="font-['Inter'] text-[11px] font-semibold mt-1">Deals</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 px-5 py-2 hover:text-red-500 transition-colors active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-['Inter'] text-[11px] font-semibold mt-1">Contribute</span>
+</button>
+<button class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-600 px-5 py-2 hover:text-red-500 transition-colors active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold mt-1">Profile</span>
+</button>
+</nav>
+</div>
+<!-- Hidden Layout Anchors for top-bar consistency -->
+<div class="fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 pointer-events-none opacity-0 translate-y-[-100%]">
+<span class="font-headline font-bold text-lg text-red-600">Poor Map</span>
+<span class="material-symbols-outlined">menu</span>
+</div>
+</body></html>

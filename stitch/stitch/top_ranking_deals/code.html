@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Poor Map - Top Picks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "tertiary": "#006b1c",
+                        "secondary": "#47626f",
+                        "on-surface-variant": "#5b403f",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#005314",
+                        "tertiary-container": "#298533",
+                        "tertiary-fixed": "#9af896",
+                        "inverse-primary": "#ffb3b2",
+                        "inverse-on-surface": "#f1f1f1",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-highest": "#e2e2e2",
+                        "primary": "#b9082c",
+                        "surface-container": "#eeeeee",
+                        "surface-variant": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#f7fff1",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-container": "#dd2d42",
+                        "on-tertiary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "surface-tint": "#bc0d2e",
+                        "outline": "#906f6f",
+                        "on-primary-fixed": "#410008",
+                        "outline-variant": "#e4bdbc",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-fixed-variant": "#2f4a57",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "secondary-container": "#c7e4f3",
+                        "surface-dim": "#dadada",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdad9",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1c",
+                        "tertiary-fixed-dim": "#7fdb7d",
+                        "on-secondary-fixed": "#001f2a",
+                        "secondary-fixed": "#cae7f6",
+                        "on-primary-fixed-variant": "#920020",
+                        "on-secondary-container": "#4b6673",
+                        "secondary-fixed-dim": "#aecbda",
+                        "primary-fixed-dim": "#ffb3b2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-xl shadow-black/5 flex justify-between items-center h-16 px-8 w-full font-['Plus_Jakarta_Sans'] font-medium">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic text-red-600 dark:text-red-500 tracking-tighter">Poor Map</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Explore</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Saved</a>
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1" href="#">Deals</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">account_circle</button>
+</div>
+</nav>
+<!-- SideNavBar (Desktop) -->
+<aside class="hidden md:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 z-40 bg-zinc-50 dark:bg-zinc-950 flex flex-col py-6 gap-2 font-['Plus_Jakarta_Sans'] shadow-2xl shadow-black/10">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3 mb-4">
+<img alt="User profile" class="w-10 h-10 rounded-full" data-alt="Close-up portrait of a cheerful person with friendly expression in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsC0WVm_aFj3sEebYsFs_TQks6h8JIqRuilDHuasQtuD8KFhVSQA8HxysHVLc-Tl7LN1Z7Ob3H0iV89bQ_nDvupeFB-x74-_FGD1tl46ICH2Ys9CGBHCS_h3T6e0xUtttT-_HuHHcW0_9etqY0n3d6oSreKsrSij9K9ZFUHRC9W9FkizYZQMTdlix8n_dA8itleHjKR_0KBT_7ND_zHtfE5EGJw5pcFLMo-HLkb8RnwdZgbpXQfFRxQNtMljnbHHGGf9IihUYhdK5O"/>
+<div>
+<p class="font-bold text-sm leading-none">Cheap Eats Explorer</p>
+<p class="text-xs text-zinc-500 mt-1">Finding gold in the grit</p>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:scale-105 transition-all">Add a Deal</button>
+</div>
+<a class="mx-4 px-4 py-3 flex items-center gap-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-medium">Map View</span>
+</a>
+<a class="mx-4 px-4 py-3 flex items-center gap-3 text-red-600 dark:text-red-400 font-bold bg-zinc-100 dark:bg-zinc-900 rounded-r-full hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+<span class="font-medium">List View</span>
+</a>
+<a class="mx-4 px-4 py-3 flex items-center gap-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">local_fire_department</span>
+<span class="font-medium">Trending</span>
+</a>
+<a class="mx-4 px-4 py-3 flex items-center gap-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 md:pl-72 md:pr-12 min-h-screen">
+<header class="mb-10 max-w-5xl">
+<h1 class="text-4xl md:text-5xl font-black font-headline tracking-tight text-on-surface mb-2">Cost-Efficiency Ranking</h1>
+<p class="text-secondary text-lg font-medium">The city's best calories-per-dollar ratios, updated hourly.</p>
+</header>
+<!-- Filters & Sorting -->
+<section class="mb-8 flex flex-wrap items-center justify-between gap-4">
+<div class="flex gap-2">
+<span class="bg-primary-container text-on-primary-container px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">tune</span> Filter
+                </span>
+<span class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors cursor-pointer">Distance</span>
+<span class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors cursor-pointer">Price Range</span>
+<span class="bg-surface-container-high text-on-surface px-4 py-2 rounded-full text-sm font-medium hover:bg-surface-container-highest transition-colors cursor-pointer">Cuisine</span>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low p-1 rounded-xl">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest shadow-sm text-sm font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">sort</span> Rating
+                </button>
+<button class="px-4 py-2 text-sm font-medium text-secondary hover:text-primary transition-colors">Distance</button>
+<button class="px-4 py-2 text-sm font-medium text-secondary hover:text-primary transition-colors">Cost</button>
+</div>
+</section>
+<!-- Ranking List (Bento-style editorial grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl">
+<!-- Rank 1: Feature Card -->
+<div class="lg:col-span-8 group cursor-pointer">
+<div class="relative h-[450px] rounded-lg overflow-hidden bg-surface-container-low transition-all duration-500 hover:shadow-2xl">
+<img alt="Juicy double cheeseburger" class="w-full h-full object-cover" data-alt="Close-up of a gourmet double cheeseburger with melting cheese and fresh greens on a rustic wooden table with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA98r6MCSJtCGjNzOcX-YXbm89ESQc7OJHuuYtcIY2QaA-HPcB7s9pa9NG4ScgAbqpNZ0oGT0ABkElyCF_-tK73laBImdPy3Zf18BA9yCYS0MsqqvgzkMmpNLfppTNjRTOLuzI2A5OERl6H5G7_0SN33HyrO6_SgMbZi-WR41EkpV_zdJHix_Dz6gzhyKUOPO5G7RZx1pY-cHlWwFHxEVZfo8S07eWAiDTOEkvALsX64e8XyL5Hau69ZOmYuVreolfQ8oDIKftK1JUW"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<!-- Top Pick Badge -->
+<div class="absolute top-6 left-6 bg-primary px-4 py-1.5 rounded-full flex items-center gap-2 text-on-primary font-bold shadow-lg">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">verified</span>
+<span>TOP PICK #1</span>
+</div>
+<div class="absolute bottom-0 p-8 w-full">
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<div class="flex items-center gap-2 text-tertiary-fixed font-bold text-sm">
+<span class="material-symbols-outlined text-[18px]">eco</span>
+                                    Extreme Value: $1.20 / 1000kcal
+                                </div>
+<h2 class="text-4xl font-black font-headline text-white leading-tight">Mama's Dumpling House</h2>
+<p class="text-zinc-300 font-medium">3.2 miles away • Open until 11 PM</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<div class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl text-center border border-white/20">
+<div class="text-white font-black text-xl">4.9</div>
+<div class="text-zinc-300 text-[10px] uppercase tracking-wider font-bold">Rating</div>
+</div>
+<div class="text-white font-bold text-lg">$ • $$</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 2 & 3: Compact Vertical Stacks -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Rank 2 -->
+<div class="flex-1 bg-surface-container-lowest rounded-lg overflow-hidden group hover:shadow-xl transition-all">
+<div class="h-40 relative">
+<img alt="Taco plate" class="w-full h-full object-cover" data-alt="Authentic street tacos with cilantro and onions on a vibrant ceramic plate, soft daylight highlighting textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8GTIQklUYavVxSkb8JNHoDBazjTJavr1qYXfwkdlHRWZ4B1I0bAasI1kw2Ze2ne9aaL2hvcP50r-ztWo1vJ1B5Afmk2nV0MG87KP5Isi05TXdCtmY6HsKxM6iq-EE-2VDIYt3R5ru_6_qvmFkVlaS54KGWU7bpDnIlgQrTJ8SBSIx-K4MecH5ttRz9NXrhht0coJsbsSOuyTqA2EtlUtLIAXIkMep4tXSoBxrHPU0GG46pwuATN_-iR49FxAZPCtnfh-v3JdywlNh"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md w-8 h-8 rounded-full flex items-center justify-center font-black text-primary shadow-sm text-sm">#2</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold font-headline mb-1">Taco El Gordo</h3>
+<p class="text-secondary text-sm mb-4">Best street tacos in the valley</p>
+<div class="flex justify-between items-center">
+<span class="text-tertiary font-bold text-sm">$4.50 Meal</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.7</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex-1 bg-surface-container-lowest rounded-lg overflow-hidden group hover:shadow-xl transition-all">
+<div class="h-40 relative">
+<img alt="Large bowl of ramen" class="w-full h-full object-cover" data-alt="Steaming bowl of shoyu ramen with soft boiled egg and pork belly in a moody authentic Japanese restaurant setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaeFqAn8qFGNf_BVuFtUysM6k00LdqEaQlw0AD1j5gY6lZ75Z-TKT2_omdRvjJc3q2YokNtJ49sUtA7orq4ihxRkqy7M2Ms44efwtMO_GLXEXVZjs2U5dmCuy1tSC3xjTpmp1fGqYR81C2K0I9JcxrKdvGF33CGOOB3wQNVJ0Ss2XxhAJ-bMiCNKXDpwuIu7bIgqCOXE8Jj7XUtuwlQJQlg5dUcMbv1NKVq6Qhm_zxTlIRGltgBU5aD0y7Axs4LwH-wObjBA0oJFSt"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md w-8 h-8 rounded-full flex items-center justify-center font-black text-primary shadow-sm text-sm">#3</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold font-headline mb-1">Ramen Shifu</h3>
+<p class="text-secondary text-sm mb-4">Massive portions, minimal price</p>
+<div class="flex justify-between items-center">
+<span class="text-tertiary font-bold text-sm">$9.00 Meal</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.6</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 4-7: Asymmetric Grid Rows -->
+<div class="lg:col-span-12 grid grid-cols-1 md:grid-cols-4 gap-6 mt-4">
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col gap-4 hover:translate-y-[-4px] transition-transform">
+<div class="aspect-video rounded-xl overflow-hidden">
+<img alt="Pepperoni pizza slice" class="w-full h-full object-cover" data-alt="Glistening pepperoni pizza slice being pulled away with melted cheese strings, warm studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFaF1nE4s8tFsQZ-aJWmWq6ZS8I0RWEghYAORd4HZ27jyfbR9REGvGIkdU1QGv30gf42OwKUQKQFX3AKYLqXWll8H2zk-wBWZo2Q6s7Svd2-eSvs-vvEZ2gBpfG2iOWw-ORZqbHckHaN6z8EdaVTVIU74bIKmGQ_a7YWMqin9T4aTm-O9M1kRpNCfU-Wxaf_fgIDB0iP6APY6u6U7upELXNePn0Y24NzQSrpFllkHv0P5TGOTFdu8j7lWgG2koPnJw1jjyVyBzUqOG"/>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold font-headline">Corner Slice</h4>
+<span class="text-xs font-black text-secondary">#4</span>
+</div>
+<p class="text-xs text-secondary mb-3">1.5 miles • Pizza</p>
+<div class="flex justify-between items-center pt-2 border-t border-surface-container">
+<span class="text-primary font-bold text-sm">$2.50 / slice</span>
+<span class="bg-tertiary-fixed px-2 py-0.5 rounded text-[10px] font-black text-on-tertiary-fixed-variant">VALUED</span>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col gap-4 hover:translate-y-[-4px] transition-transform">
+<div class="aspect-video rounded-xl overflow-hidden">
+<img alt="Fresh falafel wrap" class="w-full h-full object-cover" data-alt="Freshly rolled falafel wrap with vibrant purple cabbage and tahini sauce on a marble counter top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbYBnc_JtO1DHbSl7zTTOAZ0oq06hSxwtmsUW_BrcyVGFjTEW8vPlxDJiq0YPD5Bohq1MSlEOxpUB3OCh7w1KGhuuU3yQ1vos2PRHj5kTLAHQ39Eii1gqXrE5EtzbYAlVvnOixkFmz_n12ywUdQof3DYNO27lyMI64IPVy-SRSfB5eqW3m8_Go7qz35G2gajsdAtDWmf0Hs9nj2OqJGPftKo4bI5MA8jNM4pri4q3gD2Jwz0lK4kxDBAhmSQbTJIGzprjdDleRceux"/>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold font-headline">Oasis Grill</h4>
+<span class="text-xs font-black text-secondary">#5</span>
+</div>
+<p class="text-xs text-secondary mb-3">0.8 miles • Middle Eastern</p>
+<div class="flex justify-between items-center pt-2 border-t border-surface-container">
+<span class="text-primary font-bold text-sm">$7.25 Combo</span>
+<span class="bg-tertiary-fixed px-2 py-0.5 rounded text-[10px] font-black text-on-tertiary-fixed-variant">TOP VALUE</span>
+</div>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col gap-4 hover:translate-y-[-4px] transition-transform">
+<div class="aspect-video rounded-xl overflow-hidden">
+<img alt="Bowl of hot pho" class="w-full h-full object-cover" data-alt="Traditional Vietnamese beef pho with herbs and lime slices on a dark rustic background with soft steam rising" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUAdxSPP4ft1-akq5yyQ5vy7HpqfR2IS45vjq_8wOGRLTsaMeN-jtkQXFFtAk0cqnaHxKcyJGKVeNt3M7fuDm36uMoin2wc3RHox-z7BMDEt67lBlg1dfjB50gho6HurA5TXwxsJOeS-ho0H1polH7SSMvGxtPOz1yMdXCGGLYwTUbeJAobiMnWeak41fQbodEfUtDBp0ZyDwTkUYHqXYYu22_tsHyNlMODzTbEH4A1LB4L_9gRpQ5EH-xidtC41rb2ywI9Mm0Jrjr"/>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold font-headline">Pho 88</h4>
+<span class="text-xs font-black text-secondary">#6</span>
+</div>
+<p class="text-xs text-secondary mb-3">4.1 miles • Vietnamese</p>
+<div class="flex justify-between items-center pt-2 border-t border-surface-container">
+<span class="text-primary font-bold text-sm">$8.50 Bowl</span>
+<span class="bg-tertiary-fixed px-2 py-0.5 rounded text-[10px] font-black text-on-tertiary-fixed-variant">CHEAPEST PHO</span>
+</div>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="bg-surface-container-lowest p-5 rounded-lg flex flex-col gap-4 hover:translate-y-[-4px] transition-transform">
+<div class="aspect-video rounded-xl overflow-hidden">
+<img alt="Beef burrito" class="w-full h-full object-cover" data-alt="Overstuffed beef burrito cut in half showing layers of rice, beans, and meat, bright kitchen lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1hgXaW8gWnp1I6jPeDaM0AHNk3G5g8h-g2le65p0DKKmiedV7RG5PppUq4ucJIiZ5kx4tF_CW85urcSzVQTav21mi3lT7X75JilGyDmlpV-AlJZ83niDeKLOWzaXBFk6YaTM1eSBUG5vyHspIZ-5p52qb9wOqo2kWvauxTeg1XnLSS8To1HCyGEgh2ZAQcnaGYzvZiN_bAwenyQ2LK2Z1b8shoEO0QBOLZUL3CremRiruhYmeR9R6G4vWquMLR59_nbiDvbB-IIqd"/>
+</div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-bold font-headline">The Roller</h4>
+<span class="text-xs font-black text-secondary">#7</span>
+</div>
+<p class="text-xs text-secondary mb-3">2.2 miles • Mexican</p>
+<div class="flex justify-between items-center pt-2 border-t border-surface-container">
+<span class="text-primary font-bold text-sm">$5.00 Burrito</span>
+<span class="bg-tertiary-fixed px-2 py-0.5 rounded text-[10px] font-black text-on-tertiary-fixed-variant">MEGA PORTION</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-zinc-100 flex justify-around py-3 px-4 z-[100] shadow-2xl">
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-bold">Map</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-red-600">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">format_list_bulleted</span>
+<span class="text-[10px] font-bold">List</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">local_fire_department</span>
+<span class="text-[10px] font-bold">Hot</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-zinc-400">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] font-bold">You</span>
+</button>
+</nav>
+<!-- Map FAB (Suppressed on List View screens usually, but kept small here for context) -->
+<button class="fixed bottom-20 right-6 md:bottom-10 md:right-10 bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 transition-transform z-50">
+<span class="material-symbols-outlined">map</span>
+</button>
+</body></html>

@@ -2,19 +2,253 @@
 export const restaurants = [
   {
     id: 1,
-    name: "松屋 新宿東口店",
-    nameKr: "마츠야 신주쿠 히가시구치점",
-    genre: "牛丼",
-    price: 450,
-    rating: 3.42,
-    lat: 35.6925,
-    lng: 139.7035,
-    area: "新宿",
-    address: "東京都新宿区新宿3-22-7",
-    tags: ["一人OK", "深夜営業", "大盛り無料"],
-    reviews: 128,
-    image: "🥩",
-    description: "牛め시並盛450円. 24시간 영업으로 심야 이용 가능. 미소시루 무료 서비스."
+    name: "松屋 新宿大ガード店",
+    genre: "牛丼", price: 400, rating: 3.8,
+    lat: 35.6934, lng: 139.6999,
+    area: "新宿", address: "東京都新宿区新宿7-10-19",
+    tags: ["一人OK", "深夜営業"], reviews: 128,
+    image: "🥩", emoji: "🥩",
+    description: "新宿西口すぐ。いつでも安い牛めし。"
+  },
+  {
+    id: 2,
+    name: "ガスト 新宿靖国通店",
+    genre: "ファミレス", price: 600, rating: 3.9,
+    lat: 35.6942, lng: 139.7028,
+    area: "新宿", address: "東京都新宿区歌舞伎町1-1-17",
+    tags: ["ドリンクバー", "家族向け"], reviews: 210,
+    image: "🍽️", emoji: "🍽️",
+    description: "コスパ最強のハンバーグとドリンクバー。"
+  },
+  {
+    id: 3,
+    name: "名代 富士そば 渋谷下田ビル店",
+    genre: "そば・うどん", price: 400, rating: 4.0,
+    lat: 35.6591, lng: 139.7001,
+    area: "渋谷", address: "東京都渋谷区宇田川町28-4",
+    tags: ["立ち食い", "24時間"], reviews: 203,
+    image: "🍜", emoji: "🍜",
+    description: "渋谷センター街近く、24時間営業の立ち食いそば。"
+  },
+  {
+    id: 4,
+    name: "サイゼリヤ 渋谷東急ハンズ前店",
+    genre: "イタリアン", price: 500, rating: 4.2,
+    lat: 35.6616, lng: 139.6983,
+    area: "渋谷", address: "東京都渋谷区宇田川町39-8",
+    tags: ["ワイン", "コスパ"], reviews: 312,
+    image: "🍕", emoji: "🍕",
+    description: "ミラノ風ドリア300円の最強コスパ。ワインも安い。"
+  },
+  {
+    id: 5,
+    name: "日高屋 秋葉原駅南店",
+    genre: "中華", price: 500, rating: 3.7,
+    lat: 35.6982, lng: 139.7749,
+    area: "秋葉原", address: "東京都千代田区神田佐久間町1-16",
+    tags: ["中華", "ちょい飲み"], reviews: 91,
+    image: "🥟", emoji: "🥟",
+    description: "中華そば390円。仕事終わりのちょい飲みに最適。"
+  },
+  {
+    id: 6,
+    name: "名物 すた丼の屋 秋葉原店",
+    genre: "定食", price: 730, rating: 4.1,
+    lat: 35.7005, lng: 139.7733,
+    area: "秋葉原", address: "東京都千代田区外神田3-2-12",
+    tags: ["大盛り", "ガッツリ"], reviews: 145,
+    image: "🍚", emoji: "🍚",
+    description: "ニンニク醤油がガツンと効いた豚肉丼。ボリューム満点。"
+  },
+  {
+    id: 7,
+    name: "カレーは飲み物。 御徒町店",
+    genre: "カレー", price: 890, rating: 4.0,
+    lat: 35.7061, lng: 139.7744,
+    area: "上野", address: "東京都台東区上野3-23-11",
+    tags: ["カレー", "黒カレー"], reviews: 178,
+    image: "🍛", emoji: "🍛",
+    description: "店名に恥じないボリュームと濃厚さ。黒カレーがおすすめ。"
+  },
+  {
+    id: 8,
+    name: "中華蕎麦 とみ田 (東京駅)",
+    genre: "ラーメン", price: 950, rating: 4.5,
+    lat: 35.6812, lng: 139.7671,
+    area: "東京駅", address: "東京都千代田区丸の内1-9-1",
+    tags: ["名店", "つけ麺"], reviews: 512,
+    image: "🍜", emoji: "🍜",
+    description: "東京駅直結で味わえる名店の味。やや高いが価値あり。"
+  },
+  {
+    id: 9,
+    name: "餃子の王将 池袋東口店",
+    genre: "中華", price: 600, rating: 4.1,
+    lat: 35.7303, lng: 139.7121,
+    area: "池袋", address: "東京都豊島区南池袋2-27-5",
+    tags: ["餃子", "チャーハン"], reviews: 267,
+    image: "🥟", emoji: "🥟",
+    description: "餃子とチャーハンの黄金セット最強。"
+  },
+  {
+    id: 10,
+    name: "鳥貴族 池袋東口店",
+    genre: "焼き鳥", price: 360, rating: 4.0,
+    lat: 35.7299, lng: 139.7135,
+    area: "池袋", address: "東京都豊島区東池袋1-14-12",
+    tags: ["均一価格", "飲み放題"], reviews: 189,
+    image: "🍗", emoji: "🍗",
+    description: "全品均一価格。貴族焼のボリュームがすごい。"
+  },
+  {
+    id: 11,
+    name: "すき家 渋谷井の頭通店",
+    genre: "牛丼", price: 400, rating: 3.8,
+    lat: 35.6606, lng: 139.6984,
+    area: "渋谷", address: "東京都渋谷区宇田川町33-1",
+    tags: ["一人OK", "テイクアウト"], reviews: 312,
+    image: "🥩", emoji: "🥩",
+    description: "種類豊富な牛丼と朝定食が魅力。"
+  },
+  {
+    id: 12,
+    name: "吉野家 秋葉原店",
+    genre: "牛丼", price: 420, rating: 3.9,
+    lat: 35.6985, lng: 139.7731,
+    area: "秋葉原", address: "東京都千代田区外神田1-15-4",
+    tags: ["一人OK", "24時間"], reviews: 145,
+    image: "🥩", emoji: "🥩",
+    description: "早い、安い、うまい。定番の味。"
+  },
+  {
+    id: 13,
+    name: "はなまるうどん 新宿東口店",
+    genre: "うどん", price: 350, rating: 4.0,
+    lat: 35.6917, lng: 139.7029,
+    area: "新宿", address: "東京都新宿区新宿3-21-2",
+    tags: ["セルフ", "安い"], reviews: 178,
+    image: "🍜", emoji: "🍜",
+    description: "かけうどんが圧倒的な安さ。天ぷらも美味しい。"
+  },
+  {
+    id: 14,
+    name: "丸亀製麺 六本木店",
+    genre: "うどん", price: 400, rating: 4.2,
+    lat: 35.6631, lng: 139.7369,
+    area: "六本木", address: "東京都港区六本木3-1-1",
+    tags: ["打ち立て", "ネギ放題"], reviews: 234,
+    image: "🍜", emoji: "🍜",
+    description: "打ち立てのコシのあるうどん。ネギ乗せ放題。"
+  },
+  {
+    id: 15,
+    name: "天丼てんや 八重洲店",
+    genre: "天丼", price: 560, rating: 4.0,
+    lat: 35.6806, lng: 139.7690,
+    area: "東京駅", address: "東京都中央区八重洲1-6-15",
+    tags: ["天丼", "揚げたて"], reviews: 198,
+    image: "🍤", emoji: "🍤",
+    description: "揚げたての天丼がこの価格で食べられる奇跡。"
+  },
+  {
+    id: 16,
+    name: "バーミヤン 上野駅前店",
+    genre: "中華", price: 700, rating: 3.8,
+    lat: 35.7107, lng: 139.7766,
+    area: "上野", address: "東京都台東区上野7-2-16",
+    tags: ["ファミレス", "中華"], reviews: 156,
+    image: "🥟", emoji: "🥟",
+    description: "本格的な中華がファミレス価格で楽しめる。"
+  },
+  {
+    id: 17,
+    name: "ジョイフル 京都伏見店",
+    genre: "ファミレス", price: 550, rating: 3.9,
+    lat: 34.9351, lng: 135.7502,
+    area: "京都", address: "京都府京都市伏見区下鳥羽浄春ヶ前町111",
+    tags: ["24時間", "ファミレス"], reviews: 167,
+    image: "🍽️", emoji: "🍽️",
+    description: "西日本発祥の超絶コスパファミレス。24時間営業も多い。"
+  },
+  {
+    id: 18,
+    name: "スシロー 梅田茶屋町店",
+    genre: "寿司", price: 120, rating: 4.1,
+    lat: 34.7061, lng: 135.4988,
+    area: "梅田", address: "大阪府大阪市北区茶屋町16-1",
+    tags: ["回転寿司", "安い"], reviews: 489,
+    image: "🍣", emoji: "🍣",
+    description: "100円台から食べられる回転寿司の王者。"
+  },
+  {
+    id: 19,
+    name: "くら寿司 難波店",
+    genre: "寿司", price: 125, rating: 4.0,
+    lat: 34.6644, lng: 135.5015,
+    area: "難波", address: "大阪府大阪市中央区難波3-1-27",
+    tags: ["回転寿司", "びっくらポン"], reviews: 412,
+    image: "🍣", emoji: "🍣",
+    description: "びっくらポンが楽しい。サイドメニューも充実。"
+  },
+  {
+    id: 20,
+    name: "やよい軒 名古屋駅前店",
+    genre: "定食", price: 850, rating: 4.1,
+    lat: 35.1709, lng: 136.8815,
+    area: "名古屋", address: "愛知県名古屋市中村区名駅4-26-25",
+    tags: ["ご飯おかわり自由", "定食"], reviews: 234,
+    image: "🍚", emoji: "🍚",
+    description: "ご飯おかわり自由が最高。お腹いっぱい食べられる。"
+  },
+  {
+    id: 21,
+    name: "なか卯 札幌駅地下街店",
+    genre: "丼ぶり・うどん", price: 450, rating: 3.8,
+    lat: 43.0686, lng: 141.3508,
+    area: "札幌", address: "北海道札幌市中央区北5条西3丁目",
+    tags: ["親子丼", "うどん"], reviews: 145,
+    image: "🥚", emoji: "🥚",
+    description: "親子丼とハイカラうどんセットが神コスパ。"
+  },
+  {
+    id: 22,
+    name: "ココイチ 福岡天神店",
+    genre: "カレー", price: 800, rating: 4.2,
+    lat: 33.5898, lng: 130.3986,
+    area: "天神", address: "福岡県福岡市中央区天神2-4-20",
+    tags: ["カスタマイズ", "カレー"], reviews: 312,
+    image: "🍛", emoji: "🍛",
+    description: "カスタマイズ自由なカレーチェーンの王者。"
+  },
+  {
+    id: 23,
+    name: "リンガーハット 仙台駅前店",
+    genre: "ちゃんぽん", price: 750, rating: 4.0,
+    lat: 38.2601, lng: 140.8800,
+    area: "仙台", address: "宮城県仙台市青葉区中央1-8-22",
+    tags: ["野菜たっぷり", "ちゃんぽん"], reviews: 189,
+    image: "🍜", emoji: "🍜",
+    description: "野菜たっぷりちゃんぽん。麺増量無料の店舗も健在。"
+  },
+  {
+    id: 24,
+    name: "かつや 川崎駅前店",
+    genre: "とんかつ", price: 590, rating: 4.3,
+    lat: 35.5312, lng: 139.7031,
+    area: "川崎", address: "神奈川県川崎市川崎区駅前本町3-1",
+    tags: ["カツ丼", "サクサク"], reviews: 267,
+    image: "🐷", emoji: "🐷",
+    description: "カツ丼梅が500円台。サクサクの品質が高い。"
+  },
+  {
+    id: 25,
+    name: "餃子の満洲 所沢東口店",
+    genre: "中華", price: 500, rating: 4.1,
+    lat: 35.7951, lng: 139.4754,
+    area: "所沢", address: "埼玉県所沢市くすのき台1-14-5",
+    tags: ["餃子", "埼玉"], reviews: 198,
+    image: "🥟", emoji: "🥟",
+    description: "「3割うまい!!」埼玉を中心に展開するコスパ中華。"
   }
 ];
 

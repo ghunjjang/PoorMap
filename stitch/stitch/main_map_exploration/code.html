@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Poor Map - Main Map Exploration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "tertiary": "#006b1c",
+                        "secondary": "#47626f",
+                        "on-surface-variant": "#5b403f",
+                        "background": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#005314",
+                        "tertiary-container": "#298533",
+                        "tertiary-fixed": "#9af896",
+                        "inverse-primary": "#ffb3b2",
+                        "inverse-on-surface": "#f1f1f1",
+                        "inverse-surface": "#2f3131",
+                        "surface-container-highest": "#e2e2e2",
+                        "primary": "#b9082c",
+                        "surface-container": "#eeeeee",
+                        "surface-variant": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#f7fff1",
+                        "surface-container-high": "#e8e8e8",
+                        "primary-container": "#dd2d42",
+                        "on-tertiary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#fffbff",
+                        "surface-tint": "#bc0d2e",
+                        "outline": "#906f6f",
+                        "on-primary-fixed": "#410008",
+                        "outline-variant": "#e4bdbc",
+                        "surface-container-low": "#f3f3f3",
+                        "on-secondary-fixed-variant": "#2f4a57",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "secondary-container": "#c7e4f3",
+                        "surface-dim": "#dadada",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffdad9",
+                        "surface-bright": "#f9f9f9",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1a1c1c",
+                        "tertiary-fixed-dim": "#7fdb7d",
+                        "on-secondary-fixed": "#001f2a",
+                        "secondary-fixed": "#cae7f6",
+                        "on-primary-fixed-variant": "#920020",
+                        "on-secondary-container": "#4b6673",
+                        "secondary-fixed-dim": "#aecbda",
+                        "primary-fixed-dim": "#ffb3b2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .map-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(249, 249, 249, 0.8) 0%, rgba(249, 249, 249, 0) 20%);
+        }
+        /* Custom teardrop marker shape */
+        .marker-pin {
+            width: 42px;
+            height: 42px;
+            border-radius: 3rem 3rem 3rem 0;
+            transform: rotate(-45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .marker-pin-inner {
+            transform: rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background overflow-hidden">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-xl shadow-black/5 font-['Plus_Jakarta_Sans'] font-medium">
+<div class="flex justify-between items-center h-16 px-8 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic text-red-600 dark:text-red-500 tracking-tighter">Poor Map</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Explore</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Saved</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Deals</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-500 hover:text-red-500 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-zinc-500 hover:text-red-500 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="flex pt-16 h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 z-40 bg-zinc-50 dark:bg-zinc-950 shadow-2xl shadow-black/10 font-['Plus_Jakarta_Sans'] flex flex-col py-6 gap-2">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="close-up portrait of a friendly man with short dark hair and a warm smile, professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZHk5Xejk0cjGthRB6TeaEAK8I_6RdlGBvqosKlARUnM-3ZD7tW2CUOu9b3z0owUUzJt5Cbl8nm92RDoIItAAvuAh9U2EU02hqhuyHPEcSC4mQzVasbC-jK8OTxV_78nuRfHushKMyAWYhr9LZ8o1QSCDwA2TLoUv5BIjDZ8anKlUQFxEzpZUTyf5ioN_uvpOhvKAU8i_zKhEMnKBH_3l9ZigtzoooHKNweNev8puKSNr-PHe-ym13uTSLtkYteY0pD2m1mnVo2Qv3"/>
+</div>
+<div>
+<h2 class="text-sm font-bold leading-tight">Cheap Eats Explorer</h2>
+<p class="text-[10px] text-zinc-500">Finding gold in the grit</p>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95">
+                    Add a Deal
+                </button>
+</div>
+<nav class="flex flex-col gap-1 pr-4">
+<a class="flex items-center gap-3 px-6 py-3 text-red-600 dark:text-red-400 font-bold bg-zinc-100 dark:bg-zinc-900 rounded-r-full hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Map View</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span>List View</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
+<span>Trending</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<!-- Trending Section for Sidebar Context -->
+<div class="mt-auto px-6 py-4">
+<p class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-4">Hot Right Now</p>
+<div class="space-y-4">
+<div class="group cursor-pointer">
+<div class="w-full h-24 rounded-lg overflow-hidden bg-zinc-200 mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="close-up of spicy korean street food tteokbokki in a steaming bowl with soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWaY2BNnvV5KbSBAJ5bs5VT9nI6gWlJ0sy7RTUj2XBUMdvn_m0Mk1otAcxWxkfa6x0-4irq3wFlPxlcknPfLZq3yaS4MUlOYFHvOydiO5-ovkSUDkOInENSfNkSyTSlf8x9bDXu7KXk0CqOJ3Is6a_DziirJfaYb_k40PeB4fcx43A0f8IqKdoOB9TVfVEMWV1hVYTgHgO-ikbpbQFkIWIdI-10_x8ssMLO1zbMw3vWbRdAB_E4ReTwDPAQduMGkFjW_5_X3ZvqtAZ"/>
+</div>
+<p class="text-xs font-bold leading-snug">Spicy Rice Cakes - Seoul Central</p>
+<p class="text-[10px] text-primary font-bold">3,500 KRW</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Map Canvas -->
+<main class="flex-1 ml-0 md:ml-64 relative bg-zinc-200">
+<!-- Simulated Map Component -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="stylized architectural map view of a dense urban city with light gray streets and white buildings in a minimalist aesthetic" data-location="Seoul, South Korea" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-yp5eUBt4iHdPqs3T0tXLZeOsXc9LbzsAOllihpiKK4LvL7ut9vquIrSPlhf_Q3_piNOODgPhmFRASnKnb7Z2BMHsdx4BiSpylltq5xd7kG9nrEKDloDkpsDAEnvSdL9jaxTQGVFqeW_gKKPZxzd5XaA9W-zX3mdakdIws1WO0NpG5t0j6hn0wNKWaA0tzN-Cgp21C7Gjwn2Sczx_MP4gBRxu5XXxIaifQ6UFFPwWCW4e-eBWT6Ka_EDsmf8evrznpSUgqsvlBCXQ"/>
+<!-- Map Markers (Asymmetric Placement) -->
+<div class="absolute top-[20%] left-[45%] group cursor-pointer">
+<div class="marker-pin bg-primary shadow-xl shadow-primary/30 active:scale-90 transition-all">
+<div class="marker-pin-inner"></div>
+</div>
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+<span class="text-xs font-bold">Myeongdong Gyoza • 9k</span>
+</div>
+</div>
+<div class="absolute top-[55%] left-[30%] group cursor-pointer">
+<div class="marker-pin bg-primary shadow-xl shadow-primary/30 active:scale-90 transition-all">
+<div class="marker-pin-inner"></div>
+</div>
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+<span class="text-xs font-bold">Corner Mandu • 4.5k</span>
+</div>
+</div>
+<div class="absolute top-[40%] left-[70%] group cursor-pointer">
+<div class="marker-pin bg-primary shadow-xl shadow-primary/30 active:scale-90 transition-all">
+<div class="marker-pin-inner"></div>
+</div>
+<div class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white px-3 py-1.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+<span class="text-xs font-bold">Isaac Toast • 3k</span>
+</div>
+</div>
+</div>
+<!-- Floating UI Overlay -->
+<div class="absolute inset-0 pointer-events-none flex flex-col items-center pt-8 px-8 z-10">
+<!-- Search & Filters Container -->
+<div class="w-full max-w-2xl flex flex-col gap-4 pointer-events-auto">
+<!-- Search Bar -->
+<div class="flex items-center bg-white/90 backdrop-blur-xl px-6 py-4 rounded-2xl shadow-2xl shadow-black/5 gap-4">
+<span class="material-symbols-outlined text-zinc-400" data-icon="search">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-zinc-400 font-medium" placeholder="Search for cheap eats in Seoul..." type="text"/>
+<button class="text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto pb-4 no-scrollbar">
+<button class="whitespace-nowrap px-5 py-2 bg-primary text-white rounded-full font-bold text-xs shadow-lg shadow-primary/20">
+                            Under 5,000 KRW
+                        </button>
+<button class="whitespace-nowrap px-5 py-2 bg-white text-zinc-700 rounded-full font-bold text-xs shadow-sm hover:bg-zinc-100 transition-colors">
+                            5,000 - 10,000 KRW
+                        </button>
+<button class="whitespace-nowrap px-5 py-2 bg-white text-zinc-700 rounded-full font-bold text-xs shadow-sm hover:bg-zinc-100 transition-colors">
+                            Popular Now
+                        </button>
+<button class="whitespace-nowrap px-5 py-2 bg-white text-zinc-700 rounded-full font-bold text-xs shadow-sm hover:bg-zinc-100 transition-colors">
+                            Open Now
+                        </button>
+<button class="whitespace-nowrap px-5 py-2 bg-white text-zinc-700 rounded-full font-bold text-xs shadow-sm hover:bg-zinc-100 transition-colors">
+                            Street Food
+                        </button>
+</div>
+</div>
+<!-- Bottom Floating Action -->
+<div class="mt-auto mb-10 pointer-events-auto">
+<button class="bg-zinc-900 text-white px-8 py-4 rounded-full flex items-center gap-3 shadow-2xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary-container" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-bold text-sm tracking-wide">Recenter Map</span>
+</button>
+</div>
+</div>
+<!-- Bento Card for Featured Result (Bottom Right) -->
+<div class="absolute bottom-8 right-8 w-80 bg-white/90 backdrop-blur-xl rounded-2xl p-4 shadow-2xl pointer-events-auto border border-white/20">
+<div class="relative w-full h-40 rounded-xl overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="a plate of crispy korean fried chicken and side dishes in a vibrant restaurant setting with soft neon lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_MY7omvANo68yjDdMwtAId0yBR_-OcnMNjJ8Wjlz1u3OQVkG2i1EkaygZTq-nytVqK-1FNpKBzBVr8mZDRUcl8txsEsG_fxTpsX0rH5yN8J8HhUYDW8-T_2SJ6iHirWWTVnuUcFW2566jp9zFdby5xBKW_RHF2DBGM4MsiqZD1P8pmqnLhD_bEEBN4BfxDEU2dHTOlD9IydooszEdhAeCXZD_BuKaVPD9lZGlNH1UuyvxXxYSm2x2rFrdI1JlNhwsjQOY8upvLEng"/>
+<div class="absolute top-3 right-3 bg-tertiary-container text-white px-3 py-1 rounded-full text-[10px] font-bold">BEST VALUE</div>
+</div>
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-extrabold text-lg tracking-tight">K-Fried Chicken Cup</h3>
+<span class="text-primary font-black">4,000₩</span>
+</div>
+<p class="text-xs text-zinc-500 mb-4">Myeong-dong • 200m away</p>
+<div class="flex gap-2">
+<button class="flex-1 bg-zinc-100 hover:bg-zinc-200 py-2 rounded-lg text-xs font-bold transition-colors">View Details</button>
+<button class="w-10 h-10 flex items-center justify-center bg-primary/10 text-primary rounded-lg">
+<span class="material-symbols-outlined" data-icon="directions">directions</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom Navigation (Hidden on MD+) -->
+<nav class="md:hidden fixed bottom-0 w-full bg-white border-t border-zinc-100 flex justify-around py-3 z-[110]">
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-[10px] font-bold">Explore</span>
+</button>
+<button class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="text-[10px] font-bold">Saved</span>
+</button>
+<button class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined" data-icon="local_activity">local_activity</span>
+<span class="text-[10px] font-bold">Deals</span>
+</button>
+<button class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

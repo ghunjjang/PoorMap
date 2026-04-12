@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "tertiary": "#006b1c",
+                    "secondary": "#47626f",
+                    "on-surface-variant": "#5b403f",
+                    "background": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#005314",
+                    "tertiary-container": "#298533",
+                    "tertiary-fixed": "#9af896",
+                    "inverse-primary": "#ffb3b2",
+                    "inverse-on-surface": "#f1f1f1",
+                    "inverse-surface": "#2f3131",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary": "#b9082c",
+                    "surface-container": "#eeeeee",
+                    "surface-variant": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#f7fff1",
+                    "surface-container-high": "#e8e8e8",
+                    "primary-container": "#dd2d42",
+                    "on-tertiary-fixed": "#002204",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#fffbff",
+                    "surface-tint": "#bc0d2e",
+                    "outline": "#906f6f",
+                    "on-primary-fixed": "#410008",
+                    "outline-variant": "#e4bdbc",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed-variant": "#2f4a57",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1c",
+                    "secondary-container": "#c7e4f3",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffdad9",
+                    "surface-bright": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1c",
+                    "tertiary-fixed-dim": "#7fdb7d",
+                    "on-secondary-fixed": "#001f2a",
+                    "secondary-fixed": "#cae7f6",
+                    "on-primary-fixed-variant": "#920020",
+                    "on-secondary-container": "#4b6673",
+                    "secondary-fixed-dim": "#aecbda",
+                    "primary-fixed-dim": "#ffb3b2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- Map Background Mockup -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 grayscale" data-alt="abstract stylized topographical map with vibrant street lines and soft pastel urban zones" data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxzCoWx0DyMeBcPVS8b837v7_mIzuaO6BEjT2xf5ICGQve5hIo3BffcoNm4VXRKj3vl1J0_T6tkOQx2LpDyLqUmjA-kQ0T_ma1E8XH4zNhLNjaxy5L6dbbfue9g40LOcmWnwoLAGJ_1e4mZJwUltWMr7z1nrHVwo3UN292xKI1EMjSaM8_HapFcptQd1CAZn9IoQI6X1C43_lZK4Jo-ta_PMVNJc-RmhAF4PoerBD0GSd8I6Vv3MI411EZPWHNKFlhOAD-ra30zEju"/>
+<!-- Mock Map Marker -->
+<div class="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-xl transform rotate-45 border-2 border-on-primary">
+<span class="material-symbols-outlined text-on-primary -rotate-45" data-weight="fill" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="mt-2 bg-surface-container-lowest px-3 py-1 rounded-full shadow-lg">
+<span class="text-xs font-bold text-primary">$12.50 Avg.</span>
+</div>
+</div>
+</div>
+<!-- Top Navigation (Shell Implementation) -->
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-xl shadow-black/5">
+<div class="flex justify-between items-center h-16 px-8 w-full font-['Plus_Jakarta_Sans'] font-medium">
+<div class="text-2xl font-black italic text-red-600 dark:text-red-500 tracking-tighter">Poor Map</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-red-600 dark:text-red-500 border-b-2 border-red-600 pb-1 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Explore</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Saved</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Deals</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Side Navigation (Shell Implementation) -->
+<aside class="hidden md:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 z-40 bg-zinc-50 dark:bg-zinc-950 shadow-2xl shadow-black/10 flex flex-col py-6 gap-2 font-['Plus_Jakarta_Sans']">
+<a class="flex items-center gap-4 px-6 py-3 text-red-600 dark:text-red-400 font-bold bg-zinc-100 dark:bg-zinc-900 rounded-r-full hover:bg-zinc-200 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Map View</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span>List View</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-200 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
+<span>Trending</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3 text-zinc-500 dark:text-zinc-400 mt-auto hover:bg-zinc-200 transition-all hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</aside>
+<!-- Restaurant Detail Side Panel (The Canvas) -->
+<main class="fixed right-0 top-16 md:top-20 bottom-0 w-full md:w-[480px] z-50 bg-white shadow-2xl overflow-y-auto rounded-t-xl md:rounded-t-none md:mr-4 md:mb-4 md:rounded-lg">
+<!-- Close Handle (Mobile) -->
+<div class="md:hidden flex justify-center py-2 bg-surface-container-low">
+<div class="w-12 h-1.5 bg-surface-dim rounded-full"></div>
+</div>
+<!-- Hero Section: Food Imagery -->
+<div class="relative h-64 md:h-80 w-full overflow-hidden">
+<div class="absolute top-4 left-4 z-10 flex gap-2">
+<span class="bg-tertiary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+                    9.4 Cost Ratio
+                </span>
+<span class="bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold">
+                    Featured Deal
+                </span>
+</div>
+<img class="w-full h-full object-cover" data-alt="Close-up of a sizzling gourmet burger with melted cheese and fresh greens in a rustic urban restaurant setting with warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEfiFF65W6V77O1au7KddMytGaUQEKIXOfOsMsq1fTmqiOwLxt1VUz0PYfNOhpqHPnJZsiCmDazvxasphkVGcN-3V5ISwseAb0_frjzLS8Tr0-URGDML7PM8eVr1wUEeUV-c1NX215Q73HI_nCRIDlutmZ9JrVxLtrKPN9Pjlg5L5orqGqgp5W-8jAGbmTEO6C3GOVih-S8nO0Q9-ezVcXd3eZOwbn1ybCHyNk3XG-puTEuiJuR173GGQciG9NxxRNvP6zSDwmEkkF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<h1 class="text-3xl font-black text-white leading-tight">The Corner Griddle</h1>
+<p class="text-white/80 font-medium text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary-container">location_on</span>
+                    Lower East Side, NYC • 0.2 mi away
+                </p>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="flex gap-3 px-6 py-6 bg-surface-container-lowest">
+<button class="flex-1 bg-primary text-on-primary font-bold py-3.5 rounded-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="near_me">near_me</span>
+                Navigate
+            </button>
+<button class="flex-1 bg-surface-container-high text-primary font-bold py-3.5 rounded-lg flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+                Save
+            </button>
+</div>
+<!-- Details Grid (Bento Style) -->
+<div class="px-6 pb-24 grid grid-cols-2 gap-4">
+<!-- Price Summary -->
+<div class="col-span-2 bg-surface-container-low p-5 rounded-lg flex justify-between items-center">
+<div>
+<p class="text-secondary text-xs font-bold uppercase tracking-wider mb-1">Average Meal</p>
+<p class="text-2xl font-black text-on-surface">$8.50 — $14.00</p>
+</div>
+<div class="text-right">
+<div class="flex gap-0.5 mb-1">
+<span class="text-primary font-black">$</span>
+<span class="text-primary font-black">$</span>
+<span class="text-surface-dim font-black">$</span>
+<span class="text-surface-dim font-black">$</span>
+</div>
+<p class="text-[10px] text-secondary/60 font-bold">RADICAL VALUE</p>
+</div>
+</div>
+<!-- Hours Card -->
+<div class="bg-surface-container-low p-5 rounded-lg col-span-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary" data-icon="schedule">schedule</span>
+<p class="text-xs font-bold text-secondary uppercase tracking-widest">Hours</p>
+</div>
+<p class="text-sm font-bold text-tertiary">Open until 11:00 PM</p>
+<p class="text-[11px] text-secondary mt-1">Peak: 12:30 PM - 1:30 PM</p>
+</div>
+<!-- Tags Card -->
+<div class="bg-surface-container-low p-5 rounded-lg col-span-1">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<p class="text-xs font-bold text-secondary uppercase tracking-widest">Vibe</p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="text-[10px] font-bold bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">Noisy</span>
+<span class="text-[10px] font-bold bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full">Cash Only</span>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="col-span-2 mt-4">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-lg font-black tracking-tight">The Street Buzz</h2>
+<span class="text-primary text-xs font-bold flex items-center gap-1 cursor-pointer">
+                        See All 84
+                        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+<div class="space-y-3">
+<!-- Review 1 -->
+<div class="bg-white p-4 rounded-lg shadow-sm border border-surface-container">
+<div class="flex justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young urban traveler with a friendly expression in a city setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCcM1kFboV4nkFkAgdKW9KJGlIIl7C4MK9anPp_FD9B6Z9_u7b6HoyRiuwLnJg42LoolFuhS4xNsasHjIFShY0uGaQ0b8VrmzT5J0rVXD4P2Hityej___0sESn6k-zVJR7iOjLgAmJOuOosQGl6LVH7GwU2APQTcrpZfNck1tdwmt91RjPZ1bREPQqeoT06ABQaaFUn4ZBqkCcYLjwUZnufP1JUxtJkmodeVvkviBAtRWj87AZyKfh2eQ0A0GtdET2ukTIBL5r1LkV"/>
+</div>
+<p class="text-xs font-bold">Marcus J.</p>
+</div>
+<div class="flex">
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-sm text-secondary/90 italic">"Best $10 lunch in the LES. The spicy aioli is life-changing."</p>
+</div>
+<!-- Review 2 -->
+<div class="bg-white p-4 rounded-lg shadow-sm border border-surface-container">
+<div class="flex justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-tertiary-fixed overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Professional woman with spectacles smiling gently against a soft urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ_nOpeEYbpmK8vCXJNQOCw6K85DclWGhzhFMF5Tp0zvA6TEXCid0jnafNtQPl-3ycahbhzwAQNY_st8ZSvh73SeanX0cg-uGb5LsEkGq4_edw1rLE-bHOyohV3QANKWbn1wVMUK45I60_EHv0qsobuda7A5hMi4fwtcI3_l-i5j66ZJ2xFckAwC83I8ntr6hdBAII7JcRML3xkXaTDycybvcIN6PF6iyTOB5dHDOYn1pFXIXLNuSNZkBTwBzs-fcesf0I72fSyk3a"/>
+</div>
+<p class="text-xs font-bold">Elena K.</p>
+</div>
+<div class="flex">
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-surface-dim text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-sm text-secondary/90 italic">"Quick, dirty, and delicious. Portions are huge for the price."</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav for Mobile (Shell Implementation) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-white/90 backdrop-blur-md flex justify-around items-center z-[110]">
+<div class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-bold">Explore</span>
+</div>
+<div class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium">Map</span>
+</div>
+<div class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-[10px] font-medium">Saved</span>
+</div>
+<div class="flex flex-col items-center text-zinc-400">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</div>
+</nav>
+</body></html>

@@ -74,8 +74,13 @@ app.get('/api/deals', async (req, res) => {
 
 app.post('/api/deals/:id/like', async (req, res) => {
   const { id } = req.params;
+  const { type } = req.body; // 'plus' or 'minus'
   try {
-    await sql`UPDATE deals SET likes = likes + 1 WHERE id = ${id}`;
+    if (type === 'plus') {
+      await sql`UPDATE deals SET likes = likes + 1 WHERE id = ${id}`;
+    } else {
+      await sql`UPDATE deals SET likes = GREATEST(0, likes - 1) WHERE id = ${id}`;
+    }
     res.json({ success: true });
   } catch (err) {
     console.error('Error liking deal:', err);

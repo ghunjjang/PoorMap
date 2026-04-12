@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Deal - Poor Map</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,700;0,800;1,800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "tertiary": "#006b1c",
+                    "secondary": "#47626f",
+                    "on-surface-variant": "#5b403f",
+                    "background": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#005314",
+                    "tertiary-container": "#298533",
+                    "tertiary-fixed": "#9af896",
+                    "inverse-primary": "#ffb3b2",
+                    "inverse-on-surface": "#f1f1f1",
+                    "inverse-surface": "#2f3131",
+                    "surface-container-highest": "#e2e2e2",
+                    "primary": "#b9082c",
+                    "surface-container": "#eeeeee",
+                    "surface-variant": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#f7fff1",
+                    "surface-container-high": "#e8e8e8",
+                    "primary-container": "#dd2d42",
+                    "on-tertiary-fixed": "#002204",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#fffbff",
+                    "surface-tint": "#bc0d2e",
+                    "outline": "#906f6f",
+                    "on-primary-fixed": "#410008",
+                    "outline-variant": "#e4bdbc",
+                    "surface-container-low": "#f3f3f3",
+                    "on-secondary-fixed-variant": "#2f4a57",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1c",
+                    "secondary-container": "#c7e4f3",
+                    "surface-dim": "#dadada",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffdad9",
+                    "surface-bright": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#1a1c1c",
+                    "tertiary-fixed-dim": "#7fdb7d",
+                    "on-secondary-fixed": "#001f2a",
+                    "secondary-fixed": "#cae7f6",
+                    "on-primary-fixed-variant": "#920020",
+                    "on-secondary-container": "#4b6673",
+                    "secondary-fixed-dim": "#aecbda",
+                    "primary-fixed-dim": "#ffb3b2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-[100] bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-xl shadow-black/5">
+<nav class="flex justify-between items-center h-16 px-8 w-full">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic text-red-600 dark:text-red-500 tracking-tighter">Poor Map</span>
+<div class="hidden md:flex gap-6 font-['Plus_Jakarta_Sans'] font-medium">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Explore</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Saved</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors" href="#">Deals</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all active:scale-95">
+<span class="material-symbols-outlined text-zinc-600" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border-2 border-surface-container-highest">
+<img alt="Profile" data-alt="close-up portrait of a smiling young professional man with short dark hair in a bright modern studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqThbTKSiC4Z48gGBxlYh384k4rThmXb_HjMKA-qg5OLXu6zWwRzTU1J6u9e1nvg6rwBy4r3DVkzEuoN06j09dJ8AeBFz7Ga4AenVmrb-GICY_2ZIEQgoF2G-S4NP9j8sXsI0uWv2SwDTzr9daaiKnw_iBSWxY60BhMo8yjyv8YToWFUKtZrT-OcJ9Co6CYA_uvDmMHfFc_ie5bdrXp4meik1ysE7dbBIyUpyoKfPGgwQgfMEQiBUQ82GUFy2M-97CK7atlwlxpyEO"/>
+</div>
+</div>
+</nav>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 max-w-5xl mx-auto">
+<!-- Editorial Header Section -->
+<div class="mb-12">
+<nav class="flex items-center gap-2 text-secondary mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+<span class="text-xs font-bold uppercase tracking-widest">Back to Map</span>
+</nav>
+<h1 class="text-5xl font-extrabold tracking-tighter text-on-surface mb-2">Submit a New Gold Mine.</h1>
+<p class="text-secondary font-medium max-w-lg">Found a spot that’s radically affordable? Share it with the community and help others find gold in the grit.</p>
+</div>
+<!-- Asymmetric Layout Container -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: The Form -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-lg p-8 shadow-2xl shadow-black/5">
+<form class="space-y-8">
+<!-- Section: Core Details -->
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant px-1" for="spot-name">Name of the Spot</label>
+<input class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-4 focus:bg-surface-container-lowest focus:ring-0 transition-all placeholder:text-zinc-400" id="spot-name" placeholder="e.g. Rico's Secret Tacos" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant px-1" for="price-point">Typical Price</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-secondary font-bold">$</span>
+<input class="w-full bg-surface-container-highest border-none rounded-sm pl-8 pr-4 py-4 focus:bg-surface-container-lowest focus:ring-0 transition-all" id="price-point" placeholder="9.99" type="text"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant px-1" for="category">Category</label>
+<select class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-4 focus:bg-surface-container-lowest focus:ring-0 transition-all text-secondary" id="category">
+<option>Street Food</option>
+<option>Late Night</option>
+<option>Bakeries</option>
+<option>Dive Bars</option>
+</select>
+</div>
+</div>
+<!-- Map Picker Visualization -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant px-1">Mark the Location</label>
+<div class="relative h-64 w-full rounded-md overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="stylized top-down satellite map of a dense urban neighborhood with soft pastel colors and high contrast streets" data-location="New York City" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj21yCjH0p1rzUJFv48uMI_UJ6pYBMKZQ9FpJYTBjYznMs9i3OPx-rr662PMaEYRniAwHf_gBsQtKE5ZWc3GPTor5YW2w9Rej_2vcrH3FsB2ZPL9wo10P9rcLlMHDWZEuUrjqaj7R4nQHy-AC2ctMAQXq7Z8CP4aKz26mekXf25ZusJafy_gFmu5Edb4HfI4mZrLtHBcxKKJRoVkt6h5kyhbBgB7KlzxZaopWaqd7Yxbpq8X0jeUYbG5WAsMjzYe5Dkzh5jHNWDpet"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-xl shadow-primary/20">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-DEFAULT flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-sm" placeholder="Search address or drag marker..." type="text"/>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface-variant px-1" for="description">Why it's a Deal</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-sm px-4 py-4 focus:bg-surface-container-lowest focus:ring-0 transition-all" id="description" placeholder="Describe the vibe, the must-try dish, and why the price is a steal..." rows="4"></textarea>
+</div>
+</div>
+<button class="w-full py-5 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                        Publish This Deal
+                    </button>
+</form>
+</div>
+<!-- Right Column: Visual Cues & Photo Upload -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Media Upload Card (Editorial Style) -->
+<div class="bg-surface-container-low rounded-lg p-6 overflow-hidden relative group">
+<div class="mb-4">
+<h3 class="text-xl font-bold tracking-tight">Upload Proof</h3>
+<p class="text-sm text-secondary">A photo of the menu or the food helps verify the deal.</p>
+</div>
+<div class="aspect-[4/3] w-full rounded-md border-2 border-dashed border-outline-variant bg-surface-container-lowest flex flex-col items-center justify-center gap-4 transition-all hover:bg-white cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="add_a_photo">add_a_photo</span>
+</div>
+<div class="text-center">
+<p class="font-bold text-on-surface">Click to upload</p>
+<p class="text-xs text-secondary">JPG, PNG up to 10MB</p>
+</div>
+</div>
+<!-- Small Tip Card -->
+<div class="mt-6 flex items-start gap-4 p-4 bg-tertiary-fixed/30 rounded-DEFAULT border border-tertiary/10">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified">verified</span>
+<div>
+<p class="text-xs font-bold text-on-tertiary-fixed-variant uppercase tracking-wider">Pro Tip</p>
+<p class="text-sm text-on-tertiary-fixed-variant/80">Clear photos of the storefront or receipt get approved 2x faster by our grit-scouts.</p>
+</div>
+</div>
+</div>
+<!-- Preview Card (Asymmetric) -->
+<div class="bg-white rounded-lg p-1 shadow-2xl shadow-black/5 transform translate-x-4">
+<div class="rounded-[calc(1rem-4px)] overflow-hidden">
+<img class="h-48 w-full object-cover grayscale-[0.5] contrast-125" data-alt="close-up of a steaming hot burger on a rustic wooden board with dramatic warm lighting in a gritty urban diner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUrK6TEp0gtagvM4ZgzAEsx39Bqu3vik00DxIhRs6vTVk6xtCGW98f3KkdtqiUKMfjYGVyu4D7vQE7BTNNrQLNtnsUKd-loPW8Jz9IW18WYUJ5tbbM9B-1bcnE2eA9hTdj889suCKt9EW172zR-PqFMv1R9elmeFxyd2mDNbgnmkQAPr2F53WnhOYgNNTtFaXDlNiLtiAiguNHJrvVDD92tkKU3CtFwreSy3TWaaVNrOrVjb1sXraV7l9fIZP2NiPaAWeLfmgU_h86"/>
+<div class="p-6 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-black uppercase tracking-widest rounded-full">Community Deal</span>
+<span class="text-2xl font-black text-primary">$??.??</span>
+</div>
+<h4 class="text-2xl font-extrabold tracking-tighter mb-1">Your Spot Name</h4>
+<div class="flex items-center gap-1 text-secondary text-xs mb-4">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+<span>Address will appear here</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Side Navigation Bar (Suppressed for focused task, but kept structure logic from JSON) -->
+<!-- Note: Following the "Suppression" rule for task-focused pages like "Add Deal", we omit the SideNav to prioritize focus. -->
+</body></html>

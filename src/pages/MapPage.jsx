@@ -67,7 +67,7 @@ export default function MapPage() {
   const [selectedGenre, setSelectedGenre] = useState('all');
   const [showReportModal, setShowReportModal] = useState(false);
   const [showRanking, setShowRanking] = useState(false);
-  const [allRestaurants, setAllRestaurants] = useState([]);
+  const [allRestaurants, setAllRestaurants] = useState(restaurants);
   const [mapCenter, setMapCenter] = useState(TOKYO_CENTER);
   const [mapBounds, setMapBounds] = useState(null);
   const [showGuide, setShowGuide] = useState(false);
@@ -94,10 +94,10 @@ export default function MapPage() {
           id: r.id,
           name: r.name,
           genre: r.genre,
-          price: r.price,
-          rating: r.rating,
-          lat: r.lat,
-          lng: r.lng,
+          price: Number(r.price) || 0,
+          rating: Number(r.rating) || 0,
+          lat: Number(r.lat),
+          lng: Number(r.lng),
           area: r.area,
           address: r.address,
           description: r.description,
@@ -105,21 +105,22 @@ export default function MapPage() {
         }));
         setAllRestaurants(mappedData);
       })
-      .catch(err => console.error('Failed to fetch restaurants:', err));
+      .catch(err => console.warn('API unavailable, using mock data:', err));
   }, []);
 
-  const filteredRestaurants = useMemo(() => {
-    if (!mapBounds) return [];
+  const { filteredRestaurants, totalCount } = useMemo(() => {
+    if (!mapBounds) return { filteredRestaurants: [], totalCount: 0 };
 
     const ne = mapBounds.getNorthEast();
     const sw = mapBounds.getSouthWest();
 
-    return allRestaurants.filter(r => {
+    const filtered = allRestaurants.filter(r => {
       const priceMatch = r.price <= maxPrice;
       const genreMatch = selectedGenre === 'all' || r.genre === selectedGenre;
       const inBounds = r.lat >= sw.lat && r.lat <= ne.lat && r.lng >= sw.lng && r.lng <= ne.lng;
       return priceMatch && genreMatch && inBounds;
     });
+    return { filteredRestaurants: filtered.slice(0, 300), totalCount: filtered.length };
   }, [allRestaurants, maxPrice, selectedGenre, mapBounds]);
 
   const priceColor = maxPrice <= 500 ? 'var(--color-cheap)' :
@@ -278,7 +279,7 @@ export default function MapPage() {
         
         {/* Count badge */}
         <div className="map-count glass">
-          {filteredRestaurants.length}件のお得なお店
+          {totalCount > 300 ? `300/${totalCount}件表示中` : `${totalCount}件のお得なお店`}
         </div>
 
         {/* GPS Button */}
