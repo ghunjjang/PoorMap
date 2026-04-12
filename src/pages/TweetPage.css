@@ -1,0 +1,386 @@
+.tweet-page {
+  min-height: 100vh;
+  padding: 20px 16px 100px;
+  background: var(--bg-primary);
+}
+
+.tweet-container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tweet-header {
+  text-align: center;
+  padding: 20px 0 8px;
+}
+
+.tweet-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 4px;
+}
+
+.tweet-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.tweet-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--color-cheap);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.tweet-restaurant-card {
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.tweet-rc-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tweet-rc-emoji {
+  font-size: 28px;
+}
+
+.tweet-rc-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tweet-rc-meta {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.tweet-preview-box {
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.tweet-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.tweet-char-count {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-cheap);
+}
+
+.tweet-char-count.over {
+  color: var(--color-expensive);
+}
+
+.tweet-textarea {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.6;
+  resize: vertical;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.tweet-textarea:focus {
+  outline: none;
+  border-color: #1d9bf0;
+}
+
+.tweet-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.tweet-btn-post {
+  flex: 1;
+  padding: 14px;
+  background: #1d9bf0;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.tweet-btn-post:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.tweet-btn-post:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tweet-btn-copy {
+  padding: 14px 18px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.tweet-btn-copy:hover {
+  background: var(--border-color);
+}
+
+.tweet-secondary-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.tweet-btn-template,
+.tweet-btn-new {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tweet-btn-template:hover,
+.tweet-btn-new:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.tweet-hashtags {
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.tweet-hashtags-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.tweet-hashtags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hashtag-chip {
+  padding: 5px 10px;
+  background: var(--bg-secondary);
+  color: #1d9bf0;
+  border: 1px solid #1d9bf030;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.hashtag-chip:hover {
+  background: #1d9bf015;
+}
+
+.tweet-history {
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.tweet-history-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.tweet-history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 13px;
+}
+
+.tweet-history-item:last-child {
+  border-bottom: none;
+}
+
+.tweet-history-name {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.tweet-history-time {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.tweet-guide {
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.tweet-guide-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.tweet-guide-list {
+  margin: 0 0 10px;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.tweet-guide-tip {
+  font-size: 13px;
+  color: var(--color-cheap);
+  font-weight: 600;
+  margin: 0;
+}
+
+.tweet-error {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 40px;
+}
+
+.tweet-tabs {
+  display: flex;
+  gap: 8px;
+  background: var(--bg-secondary);
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.tweet-tab {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tweet-tab.active {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.community-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.community-card {
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.community-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.community-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+}
+
+.community-sublabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.community-copy-btn {
+  padding: 6px 12px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.community-copy-btn.copied {
+  background: var(--color-cheap);
+  color: white;
+  border-color: var(--color-cheap);
+}
+
+.community-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 10px 12px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  line-height: 1.6;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: inherit;
+}

@@ -5,6 +5,7 @@ import CommunityPage from './pages/CommunityPage';
 import DealsPage from './pages/DealsPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
+import TweetPage from './pages/TweetPage';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/deals" element={<DealsPage />} />
           <Route path="/terms" element={<TermsPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
+          <Route path="/tweet" element={<TweetPage />} />
         </Routes>
         <BottomNav />
       </div>

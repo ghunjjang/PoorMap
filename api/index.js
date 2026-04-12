@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { neon } from '@neondatabase/serverless';
+import { TwitterApi } from 'twitter-api-v2';
 
 const app = express();
 const sql = neon(process.env.POSTGRES_URL);
@@ -15,6 +16,15 @@ app.get('/api/restaurants', async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error('Error fetching restaurants:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/api/restaurants/random', async (req, res) => {
+  try {
+    const rows = await sql`SELECT * FROM restaurants ORDER BY RANDOM() LIMIT 1`;
+    res.json(rows[0]);
+  } catch (err) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
@@ -85,6 +95,43 @@ app.post('/api/deals/:id/like', async (req, res) => {
   } catch (err) {
     console.error('Error liking deal:', err);
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// --- AUTO TWEET (Cron) ---
+const tweetTemplates = [
+  (r) => `🍴 今日のコスパ飯！\n\n🏪 ${r.name}\n💴 ¥${r.price}\n⭐ ${Number(r.rating).toFixed(1)}\n📍 ${r.area}\n\n${r.description}\n\n全国のコスパ飯を地図で探せる👇\nhttps://poor-map.vercel.app\n\n#節約 #コスパ #貧乏マップ #激安グルメ`,
+  (r) => `💡 ${r.area}のおすすめ格安飯\n\n🏪 ${r.name}\n💴 ¥${r.price} · ⭐${Number(r.rating).toFixed(1)}\n\n${r.description}\n\n🗾 貧乏マップで近くのお得な店を探そう！\nhttps://poor-map.vercel.app\n\n#節約飯 #激安 #コスパ最強 #安ウマ`,
+  (r) => `🗾 貧乏マップ今日のピックアップ\n\n【${r.genre}】📍${r.area}\n\n✅ ${r.name}\n💴 ¥${r.price}〜 / ⭐ ${Number(r.rating).toFixed(1)}\n\n${r.description}\n\n地図で全国1万店舗以上を検索👇\nhttps://poor-map.vercel.app\n\n#節約 #安ウマ #コスパ飯 #貧乏飯`,
+  (r) => `⚡ 1000円以下で満腹になれる店を発見！\n\n🏪 ${r.name}（${r.area}）\n💴 たったの¥${r.price}！\n⭐ ${Number(r.rating).toFixed(1)}\n\n${r.description}\n\n他にも全国のコスパ飯が見つかる👇\nhttps://poor-map.vercel.app\n\n#節約生活 #コスパ #格安グルメ #貧乏マップ`,
+];
+
+app.get('/api/cron/tweet', async (req, res) => {
+  const authHeader = req.headers['authorization'];
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  try {
+    const rows = await sql`SELECT * FROM restaurants ORDER BY RANDOM() LIMIT 1`;
+    if (!rows.length) return res.status(404).json({ error: 'No restaurants' });
+    const r = rows[0];
+
+    const template = tweetTemplates[Math.floor(Math.random() * tweetTemplates.length)];
+    const tweetText = template(r);
+
+    const client = new TwitterApi({
+      appKey: process.env.X_API_KEY,
+      appSecret: process.env.X_API_SECRET,
+      accessToken: process.env.X_ACCESS_TOKEN,
+      accessSecret: process.env.X_ACCESS_SECRET,
+    });
+
+    const result = await client.v2.tweet(tweetText);
+    console.log('Tweet posted:', result.data.id);
+    res.json({ success: true, id: result.data.id, text: tweetText });
+  } catch (err) {
+    console.error('Tweet error:', err);
+    res.status(500).json({ error: err.message });
   }
 });
 
