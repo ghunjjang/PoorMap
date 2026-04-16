@@ -80,19 +80,18 @@ https://poor-map.vercel.app
 };
 
 const templates = [
-  (r) => `🍴 今日のコスパ飯！
-
+  (r) => `衝撃の価格... 이게 단돈 ¥${r.price.toLocaleString()}?! ✨
+    
 🏪 ${r.name}
-💴 ¥${r.price}
-⭐ ${Number(r.rating).toFixed(1)}
 📍 ${r.area}
+⭐ ${Number(r.rating).toFixed(1)} 점의 검증된 맛집
 
 ${r.description}
 
-全国のコスパ飯を地図で探せる👇
+전국의 '갓성비' 맛집을 지도로 확인하세요👇
 https://poor-map.vercel.app
 
-#節約 #コスパ #貧乏マップ #激安グルメ`,
+#神コスパ #節約 #貧보맵 #激安グルメ #飯テロ`,
 
   (r) => `💡 ${r.area}のおすすめ格安飯
 
@@ -132,17 +131,17 @@ https://poor-map.vercel.app
 
 #節約生活 #コスパ #格安グルメ #貧乏マップ`,
 
-  (r) => `🥢 ${r.genre}好き必見！
+  (r) => `💴 지갑 구원투수 등장! ¥${r.price.toLocaleString()}의 행복
 
 ${r.name}（${r.area}）
-たったの ¥${r.price} で食べられる！⭐${Number(r.rating).toFixed(1)}
+이 가격에 이 퀄리티 실화입니까? ⭐${Number(r.rating).toFixed(1)}
 
 ${r.description}
 
-💰 貧乏マップで節約飯を探そう
+💰 빈보맵에서 오늘 저녁 해결하기
 https://poor-map.vercel.app
 
-#${r.genre.replace(/[・\s]/g, '')} #節約飯 #コスパ #貧乏マップ`,
+#${r.genre.replace(/[・\s]/g, '')} #神コスパ #節約飯 #コスパ #貧乏マップ`,
 ];
 
 export default function TweetPage() {
@@ -218,7 +217,7 @@ export default function TweetPage() {
     <div className="tweet-page">
       <div className="tweet-container">
         <div className="tweet-header">
-          <h1 className="tweet-title">📣 홍보 도구</h1>
+          <h1 className="tweet-title">📣 プロモーションツール</h1>
           <p className="tweet-subtitle">各プラットフォーム用の投稿文を自動生成</p>
         </div>
 
@@ -300,8 +299,19 @@ export default function TweetPage() {
                 🐦 Xで投稿する
               </button>
               <button className="tweet-btn-copy" onClick={handleCopy}>
-                {copied ? '✅ コピー済み' : '📋 テキストをコピー'}
+                {copied ? '✅ コピー済み' : '📋 テキスト를 복사'}
               </button>
+            </div>
+
+            {/* Social Card Preview */}
+            <div className="tweet-social-card glass">
+              <div className="tweet-hashtags-title">📸 추천 첨부 이미지 (효과 만점!)</div>
+              <div className="social-card-preview">
+                <img src="/og-image.png" alt="Promotion Card" />
+                <div className="social-card-tip">
+                  💡 지도의 <b>말풍선 가격</b>이 보이게 스크린샷을 찍어 함께 올리면 클릭률이 5배 이상 올라갑니다!
+                </div>
+              </div>
             </div>
 
             <div className="tweet-secondary-actions">
@@ -317,7 +327,7 @@ export default function TweetPage() {
             <div className="tweet-hashtags glass">
               <div className="tweet-hashtags-title">よく使うハッシュタグ</div>
               <div className="tweet-hashtags-list">
-                {['#節約', '#コスパ', '#貧乏マップ', '#激安グルメ', '#節約飯', '#安ウマ', '#節約生活', '#貧乏飯', '#格安グルメ', '#コスパ最強'].map(tag => (
+                {['#神コスパ', '#激安グルメ', '#節約', '#コス파', '#貧보맵', '#安ウマ', '#節約生活', '#貧乏飯', '#飯テロ', '#コスパ最強'].map(tag => (
                   <button
                     key={tag}
                     className="hashtag-chip"

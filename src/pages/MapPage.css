@@ -39,9 +39,25 @@
 }
 
 .map-ranking-btn,
+.map-share-btn,
 .map-report-btn {
   font-size: var(--font-xs) !important;
-  padding: 6px 12px !important;
+  padding: 8px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.map-share-btn {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.map-share-btn:hover {
+  background: var(--bg-card-hover) !important;
+  transform: translateY(-2px);
 }
 
 /* Price Filter */
@@ -234,6 +250,25 @@
   background: rgba(255,107,139,0.15);
 }
 
+.popup-detail-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 8px;
+  background: var(--color-cheap);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.popup-detail-btn:hover {
+  opacity: 0.85;
+}
+
 /* Count Badge */
 .map-count {
   position: fixed;
@@ -262,13 +297,35 @@
   z-index: var(--z-overlay);
 }
 
-.ranking-title {
-  font-size: var(--font-md);
-  font-weight: 700;
+.ranking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: var(--space-md);
   padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--border-color);
+}
+
+.ranking-title {
+  font-size: var(--font-md);
+  font-weight: 700;
+  margin-bottom: 0;
   color: var(--accent-primary);
+}
+
+.ranking-share-icon {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.ranking-share-icon:hover {
+  transform: scale(1.2);
+  background: rgba(0,0,0,0.05);
 }
 
 .ranking-item {

@@ -267,223 +267,127 @@ export const communityPosts = [
   }
 ];
 
-// 핫딜 데이터 (Amazon 어소시에이트 연동 - 풍성한 12종 세트)
+// Amazon アソシエイト ホットディール（12種）
 export const deals = [
   {
     id: 1,
-    title: "[Amazon 브랜드] 천연수 2L x 9병 (라벨리스)",
-    originalPrice: 1500,
-    dealPrice: 1180,
-    discount: 21,
-    source: "Amazon.co.jp",
-    sourceIcon: "🛒",
-    category: "생필품",
-    expiresAt: "2026-05-30",
-    likes: 342,
-    comments: 28,
-    author: "할인명탐정",
-    createdAt: "2026-04-05T09:00:00",
-    isHot: true,
-    description: "아마존 베스트셀러! 라벨이 없어 분리수거가 간편한 초가성비 생수입니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B08GZR18S3?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "💧", category: "飲料",
+    title: "サントリー 天然水 2L×9本（ラベルレス）",
+    description: "Amazon売れ筋ランキング1位の定番ミネラルウォーター。ラベルなしでゴミ分別が楽々。箱買いでさらにお得！",
+    originalPrice: 1780, dealPrice: 1280, discount: 28,
+    author: "節約主婦", createdAt: "2026-04-10T09:00:00", expiresAt: "2026-06-30",
+    likes: 342, comments: 28, isHot: true,
+    affiliate_url: "https://www.amazon.co.jp/s?k=サントリー+天然水+2L+9本+ラベルレス&tag=amazon0ff1f1-20"
   },
   {
     id: 2,
-    title: "닛신 컵누들 78g x 20개입 (벌크)",
-    originalPrice: 5000,
-    dealPrice: 4400,
-    discount: 12,
-    source: "Amazon.co.jp",
-    sourceIcon: "🍜",
-    category: "식품",
-    expiresAt: "2026-05-15",
-    likes: 567,
-    comments: 45,
-    author: "라면고수",
-    createdAt: "2026-04-06T12:00:00",
-    isHot: true,
-    description: "일본 국민 컵라면! 벌크 구매로 개당 가격을 낮춘 최강의 비상식량입니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B002P67WY4?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🍜", category: "食品",
+    title: "日清 カップヌードル 78g × 20個入りまとめ買い",
+    description: "国民的カップラーメンをまとめ買い！保存食・非常食にも最適。1個あたり約110円と圧倒的コスパ。",
+    originalPrice: 2980, dealPrice: 2200, discount: 26,
+    author: "麺好き", createdAt: "2026-04-10T10:00:00", expiresAt: "2026-06-30",
+    likes: 567, comments: 45, isHot: true,
+    affiliate_url: "https://www.amazon.co.jp/s?k=日清+カップヌードル+まとめ買い+20個&tag=amazon0ff1f1-20"
   },
   {
     id: 3,
-    title: "스코티 플라워 팩 화장지 12롤 (3배 더 긴 타입)",
-    originalPrice: 1800,
-    dealPrice: 1220,
-    discount: 32,
-    source: "Amazon.co.jp",
-    sourceIcon: "🛒",
-    category: "생필품",
-    expiresAt: "2026-06-01",
-    likes: 891,
-    comments: 102,
-    author: "살림왕",
-    createdAt: "2026-04-07T09:30:00",
-    isHot: false,
-    description: "일반 롤보다 3배 길어 교체 주기와 보관 공간을 아껴주는 경제적인 제품입니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B085GDK3FH?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🧻", category: "日用品",
+    title: "スコッティ 3倍長持ちトイレットロール 12ロール",
+    description: "通常の3倍長持ちするからストック場所も節約！大容量パックでコスパ最強のトイレットペーパー。",
+    originalPrice: 1680, dealPrice: 1180, discount: 30,
+    author: "節約マスター", createdAt: "2026-04-10T11:00:00", expiresAt: "2026-07-31",
+    likes: 891, comments: 102, isHot: false,
+    affiliate_url: "https://www.amazon.co.jp/s?k=スコッティ+3倍+トイレットペーパー+12ロール&tag=amazon0ff1f1-20"
   },
   {
     id: 4,
-    title: "Anker PowerPort 2 Elite (24W 2포트 충전기)",
-    originalPrice: 2000,
-    dealPrice: 1580,
-    discount: 21,
-    source: "Amazon.co.jp",
-    sourceIcon: "🔌",
-    category: "가전",
-    expiresAt: "2026-04-30",
-    likes: 1204,
-    comments: 89,
-    author: "IT매니아",
-    createdAt: "2026-04-08T14:20:00",
-    isHot: true,
-    description: "수만 개의 리뷰가 증명하는 스테디셀러 고속 충전기. 여행용으로도 최고입니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B06ZXXQGZ8?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🧺", category: "日用品",
+    title: "アタック ZERO 詰め替え用 超特大 1.35kg",
+    description: "洗浄力No.1の人気洗濯洗剤。詰め替え超特大サイズで1回分のコストをとことん削減！",
+    originalPrice: 1980, dealPrice: 1380, discount: 30,
+    author: "洗濯職人", createdAt: "2026-04-10T12:00:00", expiresAt: "2026-07-31",
+    likes: 312, comments: 18, isHot: true,
+    affiliate_url: "https://www.amazon.co.jp/s?k=アタックZERO+詰め替え+超特大&tag=amazon0ff1f1-20"
   },
   {
     id: 5,
-    title: "아키타현산 아키타코마치 5kg (백미)",
-    originalPrice: 3500,
-    dealPrice: 2880,
-    discount: 18,
-    source: "Amazon.co.jp",
-    sourceIcon: "🛒",
-    category: "식품",
-    expiresAt: "2026-05-20",
-    likes: 421,
-    comments: 31,
-    author: "밥심",
-    createdAt: "2026-04-08T15:00:00",
-    isHot: true,
-    description: "무거운 쌀도 집 앞까지 배송! 찰지고 맛있는 아키타코마치 햅쌀입니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B00G0N9HGE?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "⚡", category: "家電",
+    title: "Anker Nano USB-C 充電器 20W（PD対応）",
+    description: "スマホを超高速充電！Anker最小クラスのUSB-C充電器。iPhone・Android両対応で旅行にも最適。",
+    originalPrice: 1990, dealPrice: 1490, discount: 25,
+    author: "ガジェット好き", createdAt: "2026-04-10T13:00:00", expiresAt: "2026-12-31",
+    likes: 1204, comments: 89, isHot: true,
+    affiliate_url: "https://www.amazon.co.jp/s?k=Anker+Nano+USB-C+20W+充電器&tag=amazon0ff1f1-20"
   },
   {
     id: 6,
-    title: "아タック ZERO 세탁세제 리필 대용량 1620g",
-    originalPrice: 2200,
-    dealPrice: 1480,
-    discount: 33,
-    source: "Amazon.co.jp",
-    sourceIcon: "🛒",
-    category: "생필품",
-    expiresAt: "2026-06-15",
-    likes: 312,
-    comments: 18,
-    author: "빨래왕",
-    createdAt: "2026-04-08T16:00:00",
-    isHot: false,
-    description: "세정력이 뛰어난 어택 제로. 리필용 대용량으로 생활비를 절약하세요.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B08FBXWXYX?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🍚", category: "食品",
+    title: "秋田県産 あきたこまち 5kg（令和産）",
+    description: "もちもちした食感で人気の秋田こまち。重い米も自宅まで配送！毎日のご飯を美味しく節約。",
+    originalPrice: 3280, dealPrice: 2680, discount: 18,
+    author: "ご飯命", createdAt: "2026-04-10T14:00:00", expiresAt: "2026-06-30",
+    likes: 421, comments: 31, isHot: false,
+    affiliate_url: "https://www.amazon.co.jp/s?k=あきたこまち+5kg+令和&tag=amazon0ff1f1-20"
   },
   {
     id: 7,
-    title: "큐큐토 주방세제 대용량 리필 1380ml",
-    originalPrice: 1200,
-    dealPrice: 780,
-    discount: 35,
-    source: "Amazon.co.jp",
-    sourceIcon: "🛒",
-    category: "생필품",
-    expiresAt: "2026-07-01",
-    likes: 198,
-    comments: 12,
-    author: "설거지인생",
-    createdAt: "2026-04-08T16:30:00",
-    isHot: true,
-    description: "기름기 제거에 탁월한 큐큐토. 대용량 리필로 경제적입니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B07T99S7P4?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "☕", category: "食品",
+    title: "ネスカフェ エクセラ 詰め替え用 60g×2袋セット",
+    description: "深みとコクが魅力のエクセラ。詰め替え2袋セットでコーヒー代を大幅節約。1杯あたり約25円！",
+    originalPrice: 1480, dealPrice: 1080, discount: 27,
+    author: "カフェ難民", createdAt: "2026-04-10T15:00:00", expiresAt: "2026-06-30",
+    likes: 256, comments: 24, isHot: true,
+    affiliate_url: "https://www.amazon.co.jp/s?k=ネスカフェ+エクセラ+詰め替え+60g+2袋&tag=amazon0ff1f1-20"
   },
   {
     id: 8,
-    title: "네스카페 엑셀라 180g (스틱/리필)",
-    originalPrice: 1500,
-    dealPrice: 1100,
-    discount: 27,
-    source: "Amazon.co.jp",
-    sourceIcon: "☕",
-    category: "식품",
-    expiresAt: "2026-05-10",
-    likes: 256,
-    comments: 24,
-    author: "카페인중독",
-    createdAt: "2026-04-08T17:00:00",
-    isHot: true,
-    description: "깊고 진한 맛의 네스카페 엑셀라. 매일 마시는 커피도 가성비 있게!",
-    affiliate_url: "https://www.amazon.co.jp/dp/B00G0N9HGE?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🫧", category: "日用品",
+    title: "キュキュット 食器用洗剤 詰め替え 大容量 1380ml",
+    description: "油汚れに強いキュキュット！大容量詰め替えでコスト削減。泡切れが良く、手肌にも優しい。",
+    originalPrice: 1100, dealPrice: 780, discount: 29,
+    author: "お皿ピカピカ", createdAt: "2026-04-10T16:00:00", expiresAt: "2026-07-31",
+    likes: 198, comments: 12, isHot: false,
+    affiliate_url: "https://www.amazon.co.jp/s?k=キュキュット+詰め替え+大容量+1380ml&tag=amazon0ff1f1-20"
   },
   {
     id: 9,
-    title: "비오레 u 손세정제 리필 800ml x 2개",
-    originalPrice: 1800,
-    dealPrice: 1380,
-    discount: 23,
-    source: "Amazon.co.jp",
-    sourceIcon: "🧼",
-    category: "생필품",
-    expiresAt: "2026-08-30",
-    likes: 145,
-    comments: 9,
-    author: "청결매니아",
-    createdAt: "2026-04-08T17:15:00",
-    isHot: false,
-    description: "온 가족이 사용하는 비오레 u. 2개 묶음 세트로 더욱 저렴합니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B07C3L6WJS?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🍟", category: "食品",
+    title: "カルビー じゃがりこ チーズ 60g×12個入り",
+    description: "サクサク食感でやみつきになるじゃがりこ！まとめ買いで1個あたり130円以下のコスパ最強スナック。",
+    originalPrice: 2180, dealPrice: 1580, discount: 28,
+    author: "おやつ番長", createdAt: "2026-04-10T17:00:00", expiresAt: "2026-06-30",
+    likes: 389, comments: 27, isHot: true,
+    affiliate_url: "https://www.amazon.co.jp/s?k=カルビー+じゃがりこ+12個+まとめ買い&tag=amazon0ff1f1-20"
   },
   {
     id: 10,
-    title: "가루비 포테토칩스우스시오지 60g x 12개입",
-    originalPrice: 1900,
-    dealPrice: 1480,
-    discount: 22,
-    source: "Amazon.co.jp",
-    sourceIcon: "🍪",
-    category: "식품",
-    expiresAt: "2026-05-05",
-    likes: 389,
-    comments: 27,
-    author: "과자중독",
-    createdAt: "2026-04-08T17:30:00",
-    isHot: true,
-    description: "일본 국민 과자 가루비 포테토칩! 집에서 쟁여두고 먹기 좋습니다.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B07G31Z9RR?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🍫", category: "食品",
+    title: "明治 ザ・チョコレート 各種 5枚×5種 セット",
+    description: "本格カカオの贅沢チョコレート。ギフトにも普段使いにも最適。まとめ買いで1枚約100円！",
+    originalPrice: 1980, dealPrice: 1480, discount: 25,
+    author: "チョコ愛好家", createdAt: "2026-04-10T17:30:00", expiresAt: "2026-06-30",
+    likes: 212, comments: 15, isHot: false,
+    affiliate_url: "https://www.amazon.co.jp/s?k=明治+ザチョコレート+5枚+セット&tag=amazon0ff1f1-20"
   },
   {
     id: 11,
-    title: "메이지 밀크 초콜릿 50g x 10개입",
-    originalPrice: 1500,
-    dealPrice: 1200,
-    discount: 20,
-    source: "Amazon.co.jp",
-    sourceIcon: "🍫",
-    category: "식품",
-    expiresAt: "2026-05-15",
-    likes: 212,
-    comments: 15,
-    author: "초코덕후",
-    createdAt: "2026-04-08T17:45:00",
-    isHot: false,
-    description: "부드럽고 달콤한 메이지 초콜릿. 간식용으로 박스 구매 추천!",
-    affiliate_url: "https://www.amazon.co.jp/dp/B007R9S1F2?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "🧼", category: "日用品",
+    title: "ビオレu 手指の消毒用アルコール 本体+詰め替えセット",
+    description: "花王の定番ハンドソープ。アルコール消毒タイプで除菌力もバッチリ。本体＋詰め替えセットがお得！",
+    originalPrice: 1480, dealPrice: 1080, discount: 27,
+    author: "清潔第一", createdAt: "2026-04-10T18:00:00", expiresAt: "2026-08-31",
+    likes: 145, comments: 9, isHot: false,
+    affiliate_url: "https://www.amazon.co.jp/s?k=ビオレu+手指+消毒+アルコール+詰め替え&tag=amazon0ff1f1-20"
   },
   {
     id: 12,
-    title: "Amazon 베이직 HDMI 케이블 1.8m",
-    originalPrice: 1200,
-    dealPrice: 880,
-    discount: 27,
-    source: "Amazon.co.jp",
-    sourceIcon: "🔌",
-    category: "가전",
-    expiresAt: "2026-12-31",
-    likes: 567,
-    comments: 42,
-    author: "가전전문가",
-    createdAt: "2026-04-08T18:00:00",
-    isHot: true,
-    description: "믿고 쓰는 아마존 베이직! 고품질 HDMI 케이블을 저렴한 가격에 만나보세요.",
-    affiliate_url: "https://www.amazon.co.jp/dp/B014I8SSD0?tag=amazon0ff1f1-20"
+    source: "Amazon.co.jp", sourceIcon: "📺", category: "家電",
+    title: "Amazon Fire TV Stick 4K（第2世代）リモコン付き",
+    description: "Prime Video・Netflix・YouTube・TVerが大画面で楽しめる！テレビをスマートTVに変えるコスパ最強デバイス。",
+    originalPrice: 8980, dealPrice: 4980, discount: 44,
+    author: "ストリーミング通", createdAt: "2026-04-10T18:30:00", expiresAt: "2026-12-31",
+    likes: 567, comments: 42, isHot: true,
+    affiliate_url: "https://www.amazon.co.jp/s?k=Fire+TV+Stick+4K+第2世代&tag=amazon0ff1f1-20"
   }
 ];
 
@@ -521,13 +425,15 @@ export const getRandomNickname = () => {
 
 // 시간 포맷
 export const formatTimeAgo = (dateString) => {
+  if (!dateString) return '';
   const now = new Date();
   const date = new Date(dateString);
+  if (isNaN(date.getTime())) return '';
   const diff = Math.floor((now - date) / 1000);
 
-  if (diff < 60) return "방금 전";
-  if (diff < 3600) return `${Math.floor(diff / 60)}분 전`;
-  if (diff < 86400) return `${Math.floor(diff / 3600)}시간 전`;
-  if (diff < 604800) return `${Math.floor(diff / 86400)}일 전`;
-  return date.toLocaleDateString("ko-KR");
+  if (diff < 60) return "たった今";
+  if (diff < 3600) return `${Math.floor(diff / 60)}分前`;
+  if (diff < 86400) return `${Math.floor(diff / 3600)}時間前`;
+  if (diff < 604800) return `${Math.floor(diff / 86400)}日前`;
+  return date.toLocaleDateString("ja-JP");
 };

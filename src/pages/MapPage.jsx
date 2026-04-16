@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css';
 import { restaurants, genres } from '../data/mockData';
 import ReportModal from '../components/ReportModal';
 import GuideModal from '../components/GuideModal';
+import RestaurantDetailModal from '../components/RestaurantDetailModal';
 import './MapPage.css';
 
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -71,6 +72,7 @@ export default function MapPage() {
   const [mapCenter, setMapCenter] = useState(TOKYO_CENTER);
   const [mapBounds, setMapBounds] = useState(null);
   const [showGuide, setShowGuide] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   useEffect(() => {
     const hasVisited = localStorage.getItem('poor_map_visited');
@@ -101,7 +103,12 @@ export default function MapPage() {
           area: r.area,
           address: r.address,
           description: r.description,
-          image: r.emoji
+          image: r.emoji,
+          hours: r.hours,
+          closed_day: r.closed_day,
+          tags: r.tags,
+          website: r.website,
+          reviews: Number(r.reviews) || 0
         }));
         setAllRestaurants(mappedData);
       })
@@ -185,6 +192,25 @@ export default function MapPage() {
             🏆 ランキング
           </button>
           <button
+            className="btn-secondary map-share-btn"
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({
+                  title: '貧乏マップ | 全国のコスパ飯を地図で探す',
+                  text: '1000円以下の格安グルメを地図で簡単検索！節約の味方「貧乏マップ」🍜',
+                  url: window.location.href,
+                }).catch(console.error);
+              } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('リンクをコピーしました！');
+              }
+            }}
+            id="share-btn"
+            title="サイトを共有"
+          >
+            📢 共有
+          </button>
+          <button
             className="btn-primary map-report-btn"
             onClick={() => setShowReportModal(true)}
             id="report-btn"
@@ -249,9 +275,9 @@ export default function MapPage() {
           />
 
           {filteredRestaurants.map((r) => (
-            <Marker 
-              key={r.id} 
-              position={[r.lat, r.lng]} 
+            <Marker
+              key={r.id}
+              position={[r.lat, r.lng]}
               icon={createCustomIcon(r.price, r.image)}
             >
               <Popup className="custom-popup" closeButton={false}>
@@ -259,18 +285,16 @@ export default function MapPage() {
                   <h3 className="popup-name">{r.name}</h3>
                   <div className="popup-meta">
                     <span className="rc-genre">{r.genre}</span>
-                    <span className="popup-rating">★{r.rating.toFixed(2)}</span>
+                    <span className="popup-rating">★{r.rating.toFixed(1)}</span>
                   </div>
                   <div className="popup-price">¥{r.price.toLocaleString()}</div>
                   <p className="popup-desc">{r.description}</p>
-                  <a 
-                    className="popup-link"
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${r.name} ${r.address}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    className="popup-detail-btn"
+                    onClick={() => setSelectedRestaurant(r)}
                   >
-                    🔗 Googleマップで見る
-                  </a>
+                    📋 詳しく見る
+                  </button>
                 </div>
               </Popup>
             </Marker>
@@ -291,7 +315,7 @@ export default function MapPage() {
                 setMapCenter([pos.coords.latitude, pos.coords.longitude]);
               }, (err) => {
                 console.error("GPS access denied or unavailable", err);
-                alert("GPS 기능을 사용할 수 없거나 거부되었습니다.");
+                alert("位置情報の取得に失敗しました。");
               });
             }
           }}
@@ -317,7 +341,24 @@ export default function MapPage() {
       {/* Ranking Panel */}
       {showRanking && (
         <div className="ranking-panel glass animate-slide-up" id="ranking-panel">
-          <h3 className="ranking-title">🏆 コスパ最強ランキング</h3>
+          <div className="ranking-header">
+            <h3 className="ranking-title">🏆 コスパ最強ランキング</h3>
+            <button
+              className="ranking-share-icon"
+              onClick={() => {
+                const text = `【貧乏マップ】現在のコスパ飯ランキングTOP5！🍜\n1. ${topRestaurants[0].name}\n2. ${topRestaurants[1].name}\n3. ${topRestaurants[2].name}\n\n#貧乏マップ #神コスパ #節約\nhttps://poor-map.vercel.app`;
+                if (navigator.share) {
+                  navigator.share({ title: 'コスパ最強ランキング', text, url: 'https://poor-map.vercel.app' }).catch(console.error);
+                } else {
+                  navigator.clipboard.writeText(text);
+                  alert('ランキングをコピーしました！');
+                }
+              }}
+              title="ランキングをシェア"
+            >
+              📢
+            </button>
+          </div>
           {topRestaurants.map((r, idx) => (
             <button
               key={r.id}
@@ -349,6 +390,14 @@ export default function MapPage() {
       {/* Onboarding Guide Modal */}
       {showGuide && (
         <GuideModal onClose={handleCloseGuide} />
+      )}
+
+      {/* Restaurant Detail Modal */}
+      {selectedRestaurant && (
+        <RestaurantDetailModal
+          restaurant={selectedRestaurant}
+          onClose={() => setSelectedRestaurant(null)}
+        />
       )}
     </div>
   );

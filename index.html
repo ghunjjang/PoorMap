@@ -7,8 +7,8 @@
 
     <!-- SEO -->
     <title>貧乏マップ | 全国のコスパ飯・格安飯を地図で探す</title>
-    <meta name="description" content="全国1万店舗以上！1000円以下で食べられるコスパ最強の飲食店を地図で検索。牛丼・ラーメン・定食・うどんなど格安グルメを簡単発見。節約したい方必見。" />
-    <meta name="keywords" content="コスパ飯,格安グルメ,節約飯,安い飯,貧乏飯,1000円以下,激安グルメ,地図,レストラン検索,牛丼,ラーメン,定食,うどん,節約生活" />
+    <meta name="description" content="全国1万店舗以上！1000円以下で食べられるコスパ最強の飲食店を地図で検索。牛丼・ラーメン・定食・うどんなど格安グルメを簡単発見。神コスパ飯・節約したい方必見。" />
+    <meta name="keywords" content="コスパ飯,格安グルメ,節約飯,安い飯,貧乏飯,神コスパ,1000円以下,激安グルメ,地図,レストラン検索,牛丼,ラーメン,定食,うどん,節約生活,飯テロ" />
     <meta name="author" content="貧乏マップ" />
     <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="hjj11QN3SNDMPs47LpkM-85IA6pz6X0ap0byXjxOZ10" />
@@ -50,6 +50,21 @@
     </script>
 
     <meta name="theme-color" content="#ff4757" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="貧乏マップ" />
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%VITE_GA_ID%"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if ('%VITE_GA_ID%' !== '%VITE_GA_ID%') {
+        gtag('config', '%VITE_GA_ID%');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

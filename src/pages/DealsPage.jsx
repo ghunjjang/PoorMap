@@ -12,16 +12,41 @@ export default function DealsPage() {
     const apiBase = import.meta.env.VITE_API_URL || '';
     fetch(`${apiBase}/api/deals`)
       .then(res => res.json())
-      .then(data => setAllDeals(data))
+      .then(data => {
+        if (!Array.isArray(data)) return;
+        const mapped = data.map(d => ({
+          id: d.id,
+          source: d.source || '',
+          sourceIcon: d.sourceicon || d.sourceIcon || '🛒',
+          category: d.category || '',
+          title: d.title || '',
+          description: d.description || '',
+          originalPrice: Number(d.originalprice ?? d.originalPrice) || 0,
+          dealPrice: Number(d.dealprice ?? d.dealPrice) || 0,
+          discount: Number(d.discount) || 0,
+          author: d.author || '',
+          likes: Number(d.likes) || 0,
+          comments: Number(d.comments) || 0,
+          createdAt: d.createdat || d.createdAt || '',
+          expiresAt: d.expiresat || d.expiresAt || '',
+          isHot: Boolean(d.ishot ?? d.isHot),
+          affiliate_url: d.affiliate_url || '',
+        }));
+        setAllDeals(mapped);
+      })
       .catch(console.error);
   }, []);
 
   const sortedDeals = useMemo(() => {
     const sorted = [...allDeals];
     if (sortBy === 'latest') {
-      sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      sorted.sort((a, b) => {
+        const ta = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+        const tb = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+        return tb - ta;
+      });
     } else {
-      sorted.sort((a, b) => b.likes - a.likes);
+      sorted.sort((a, b) => (b.likes || 0) - (a.likes || 0));
     }
     return sorted;
   }, [allDeals, sortBy]);
@@ -68,9 +93,8 @@ export default function DealsPage() {
       {/* Deals List */}
       <div className="deals-list">
         {sortedDeals.map((deal, idx) => (
-          <>
+          <div key={deal.id}>
             <article
-              key={deal.id}
               className="deal-card card"
               style={{ animationDelay: `${idx * 0.07}s` }}
               id={`deal-${deal.id}`}
@@ -109,13 +133,13 @@ export default function DealsPage() {
                 <div className="deal-actions">
                   <a 
                     className="btn-primary" 
-                    href={deal.affiliate_url || "#"} 
-                    target="_blank" 
+                    href={deal.affiliate_url || "#"}
+                    target="_blank"
                     rel="noopener noreferrer"
                     style={{ fontSize: '12px', padding: '6px 12px', textDecoration: 'none' }}
                     id={`affiliate-deal-${deal.id}`}
                   >
-                    🔗 쇼핑몰에서 확인하기
+                    🔗 詳細を見る
                   </a>
                   <button
                     className="deal-like-btn"
@@ -132,11 +156,9 @@ export default function DealsPage() {
                 ⏰ {deal.expiresAt}まで
               </div>
             </article>
-            {/* 2번째 딜 뒤에 인라인 광고 */}
             {idx === 1 && <AdBanner variant="inline" adIndex={0} />}
-            {/* 4번째 딜 뒤에 인라인 광고 */}
             {idx === 3 && <AdBanner variant="inline" adIndex={2} />}
-          </>
+          </div>
         ))}
 
       </div>

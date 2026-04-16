@@ -26,21 +26,35 @@ export default function CommunityPage() {
     return posts.filter(p => p.category === activeCategory);
   }, [posts, activeCategory]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!newTitle.trim()) return;
-    const newPost = {
-      id: posts.length + 1,
-      category: newCategory,
-      title: newTitle,
-      author: nickname || getRandomNickname(),
-      content: newContent,
-      comments: 0,
-      likes: 0,
-      createdAt: new Date().toISOString(),
-      isHot: false
-    };
-    setPosts(prev => [newPost, ...prev]);
+    const author = nickname || getRandomNickname();
+    try {
+      const apiBase = import.meta.env.VITE_API_URL || '';
+      const res = await fetch(`${apiBase}/api/posts`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ category: newCategory, title: newTitle, author, content: newContent, isHot: false }),
+      });
+      const result = await res.json();
+      if (result.success) {
+        const newPost = {
+          id: result.id,
+          category: newCategory,
+          title: newTitle,
+          author,
+          content: newContent,
+          comments: 0,
+          likes: 0,
+          createdAt: new Date().toISOString(),
+          isHot: false,
+        };
+        setPosts(prev => [newPost, ...prev]);
+      }
+    } catch (err) {
+      console.error('Failed to post:', err);
+    }
     setNewTitle('');
     setNewContent('');
     setNickname('');
@@ -147,9 +161,8 @@ export default function CommunityPage() {
       {/* Posts List */}
       <div className="posts-list">
         {filteredPosts.map((post, idx) => (
-          <>
+          <div key={post.id}>
             <article
-              key={post.id}
               className="post-item card"
               style={{ animationDelay: `${idx * 0.05}s` }}
               id={`post-${post.id}`}
@@ -170,14 +183,11 @@ export default function CommunityPage() {
                 </div>
               </div>
             </article>
-            {/* 3번째 게시글 뒤에 인라인 광고 */}
             {idx === 2 && <AdBanner variant="inline" adIndex={0} />}
-            {/* 5번째 게시글 뒤에 인라인 광고 */}
             {idx === 4 && <AdBanner variant="inline" adIndex={1} />}
-          </>
+          </div>
         ))}
 
-        {/* 카드형 광고 */}
         <AdBanner variant="card" adIndex={2} />
 
       </div>
